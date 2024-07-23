@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Vai Process {% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/lista.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% include 'home/header_derecha.html' %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="section" id="portada" style="display: flex; gap: 20px;">
+        <div class="text">
+            <h4><strong>VAI Process</strong> </h4>
+            <h2>Ingeniería, Construcción, Equipos e Insumos para tratamiento de Aguas.</h2>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'images/FOTO ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+        </div>
+    </div>
+
+    <!--Seccion acerca de nosotros / quienes somos-->
+    <div class="section" id="quienes" style="display: flex; gap: 20px;">
+
+        <h4>Quienes Somos</h4>
+
+        <div class="photo">
+            <img src="{% static 'images/FOTO ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+        </div>
+
+        <div class="text">
+            <h2><strong>VAI Process</strong> </h2>
+            <p>
+                Somos una empresa de ingeniería y construcción especializada en el tratamiento de aguas.
+                Proveemos equipos, insumos y sistemas de purificación y acondicionamiento de agua para aplicaciones domiciliarias,
+                comerciales e industriales, desarrollando soluciones específicas para cada caso.
+            </p>
+            <p>
+                Entre nuestros productos y servicios, se incluyen plantas de ósmosis, plantas potabilizadoras, tratamiento de agua para
+                torres de enfriamiento, sistemas de filtración, sistemas ultravioletas, sistemas de dosificación, instrumentación,
+                resinas de intercambio iónico, mantenimiento, limpieza y desinfección de estanques de agua potable, análisis de
+                laboratorio certificado, entre otros.
+            </p>
+        </div>
+  </div>
+
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+    {% include 'home/lista.html' %}
+{% endblock %}
+

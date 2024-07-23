@@ -1,0 +1,93 @@
+body.bg-image {
+    background-image: url('../images/bienvenida.jpg'); /* Cambia 'your-background-image.jpg' por la ruta de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que la imagen se mantenga fija al hacer scroll */
+    height: 100%; /* Asegura que el body ocupe toda la altura de la pantalla */
+    margin: 0; /* Elimina los márgenes por defecto */
+    padding: 0; /* Elimina los rellenos por defecto */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* asegura que el body ocupe al menos el 100% del viewport */
+    background-color: #7db5ee;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+}
+.container-fluid {
+    background-color: #13579a; /* Cambia este color según tus necesidades */
+    padding: 0% 5%;
+}
+
+.header-column img.logo-img {
+    width: 50%; /* La imagen del logo ocupará el 80% del contenedor */
+    max-height: 100%;
+
+}
+
+
+
+main {
+    flex: 1;
+    margin-top: calc(15vh); /* Asegura que el contenido no quede oculto detrás del header */
+
+    padding: 0; /* elimina cualquier relleno */
+}
+
+footer {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.footer-container {
+    background-color: #6b7390; /* color de fondo gris */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container .row {
+    margin: 0;
+}
+
+
+
+.nav-list {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 0; /* Elimina el margin por defecto */
+    display: flex; /* Alinear los elementos en línea */
+    flex-wrap: wrap; /* Ajusta los elementos en líneas cuando se exceden el ancho del contenedor */
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+}
+
+.nav-list li {
+    margin-right: 15px; /* Espacio entre los elementos de la lista */
+}
+
+.nav-list a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: rgb(0, 0, 0); /* Cambia el color del texto según tu diseño */
+    padding: 10px 15px; /* Espacio interno alrededor del texto */
+}
+
+.nav-list a:hover {
+    text-decoration: underline; /* Añade subrayado al pasar el cursor, si deseas */
+    color: rgb(255, 255, 255); /* Cambia el color del texto según tu diseño */
+}

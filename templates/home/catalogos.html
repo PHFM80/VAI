@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Catalogos {% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/header_central.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% include 'home/lista.html' %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+<!-- Seccion de catálogos -->
+<section class="section" id="catalogos" style="padding: 20px; background-color: #f9f9f9;">
+    
+    <!-- Título de la Sección -->
+    <div class="catalogos-titulo" style="text-align: center; margin-bottom: 20px;">
+      <h2>Catálogos</h2>
+    </div>
+    
+    <!-- Contenedor de los Catálogos -->
+    <!-- catalogo 1 -->
+    <div class="catalogos-contenedor"></div>
+    <!-- catalogo 2 -->
+    <div class="catalogos-contenedor"></div>
+    <!-- catalogo 3 -->
+    <div class="catalogos-contenedor"></div>
+    <!-- catalogo 4 -->
+    <div class="catalogos-contenedor"></div>
+  
+  </section>
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+<!-- Espacio para accesos -->
+{% endblock %}
