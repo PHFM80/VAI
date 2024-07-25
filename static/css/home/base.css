@@ -1,0 +1,92 @@
+/* Asegúrate de que el body ocupe toda la pantalla y no tenga márgenes ni padding */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo y flexbox para asegurarse de que el contenido ocupe toda la altura */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #7db5ee;
+}
+
+/* Header pegajoso en la parte superior */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 10; /* Asegura que el header esté por encima del contenido de la portada */
+
+}
+
+/* Ajustes de la navbar para eliminar márgenes y padding no deseados */
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background-color: #13579a;
+    padding: 0 5%;
+}
+
+/* Ajuste del logo */
+.header-column img.logo-img {
+    width: 50%;
+    max-height: 100%;
+}
+
+/* Main sin márgenes ni padding, ocupando el espacio restante */
+main {
+    flex: 1 0 auto; /* El contenido principal toma el espacio restante */
+    padding-top: 110px; /* Ajusta este valor si tu header tiene una altura diferente */
+    padding-bottom: 60px; /* Ajusta este valor si tu footer tiene una altura diferente */
+}
+
+/* Footer siempre al final de la página */
+footer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Fondo y ajuste del footer */
+.footer-container {
+    background-color: #6b7390;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Ajustes adicionales para eliminar márgenes y padding no deseados en los elementos del footer */
+.footer-container .col-md-3,
+.footer-container .col-md-5,
+.footer-container .col-md-4 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo del body */
+body.bg-image {
+    background-color: #2c6195;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+

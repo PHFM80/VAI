@@ -1,0 +1,3 @@
+<a href="{% if button_url %}{% url button_url %}{% else %}#{% endif %}" class="btn btn-outline-dark" role="button">
+    {% if button_text %}{{ button_text }}{% else %}Iniciar Sesión{% endif %}
+</a>

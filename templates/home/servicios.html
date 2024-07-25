@@ -3,16 +3,22 @@
 
 {% block title %} Servicios {% endblock %}
 
+{% block extra_styles %}
+<!-- Espacio para estilos específicos de cada página -->
+{% endblock %}
+
 <!-- Header -->
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-    {% include 'home/header_central.html' %}
+  {% include 'home/listasecciones.html' %}
 {% endblock %}
 
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
 {% block header_derecha %}
-    {% include 'home/lista.html' %}
+    {% with button_text="Iniciar Sesión" button_url="login" %}
+        {% include 'home/botonheader.html' %}
+    {% endwith %}
 {% endblock %}
 
 <!-- Main Content -->
@@ -191,5 +197,5 @@
 
 <!-- Footer -->
 {% block footer_izquierda %}
-<!-- Espacio para accesos -->
+    {% include 'home/listasecciones.html' %}
 {% endblock %}

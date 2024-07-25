@@ -3,28 +3,42 @@
 
 {% block title %} Vai Process {% endblock %}
 
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/home/home-portada.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home-quienes.css' %}">
+{% endblock %}
+
 <!-- Header -->
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-    {% include 'home/lista.html' %}
+    {% include 'home/listasecciones.html' %}
 {% endblock %}
 
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
 {% block header_derecha %}
-    {% include 'home/header_derecha.html' %}
+    {% with button_text="Iniciar Sesión" button_url="login" %}
+        {% include 'home/botonheader.html' %}
+    {% endwith %}
 {% endblock %}
 
 <!-- Main Content -->
 {% block content %}
-    <div class="section" id="portada" style="display: flex; gap: 20px;">
+
+    <div class="section portada" id="portada" >
         <div class="text">
             <h4><strong>VAI Process</strong> </h4>
             <h2>Ingeniería, Construcción, Equipos e Insumos para tratamiento de Aguas.</h2>
         </div>
-
         <div class="photo">
-            <img src="{% static 'images/FOTO ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+            <div class="collage">
+                <img src="{% static 'images/collage6.webp' %}" alt="Foto 1" class="collage-photo photo1">
+                <img src="{% static 'images/collage2.webp' %}" alt="Foto 2" class="collage-photo photo2">
+                <img src="{% static 'images/collage1.webp' %}" alt="Foto 3" class="collage-photo photo3">
+                <img src="{% static 'images/collage3.webp' %}" alt="Foto 3" class="collage-photo photo4">
+                <img src="{% static 'images/collage4.webp' %}" alt="Foto 3" class="collage-photo photo5">
+                <img src="{% static 'images/collage5.webp' %}" alt="Foto 3" class="collage-photo photo6">
+            </div>
         </div>
     </div>
 
@@ -58,6 +72,10 @@
 
 <!-- Footer -->
 {% block footer_izquierda %}
-    {% include 'home/lista.html' %}
+    {% include 'home/listasecciones.html' %}
 {% endblock %}
 
+
+{% block extra_scripts %}
+    <script src="{% static 'js/home/estrellas.js' %}"></script>
+{% endblock %}
