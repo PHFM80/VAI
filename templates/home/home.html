@@ -4,8 +4,8 @@
 {% block title %} Vai Process {% endblock %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/home/home-portada.css' %}">
     <link rel="stylesheet" href="{% static 'css/home/home-quienes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home-portada.css' %}">
 {% endblock %}
 
 <!-- Header -->
@@ -25,10 +25,10 @@
 <!-- Main Content -->
 {% block content %}
 
-    <div class="section portada" id="portada" >
+    <div class="portada" id="portada" >
         <div class="text">
-            <h4><strong>VAI Process</strong> </h4>
-            <h2>Ingeniería, Construcción, Equipos e Insumos para tratamiento de Aguas.</h2>
+            <h4 class="h4-1"><strong>VAI</strong></h4><h4 class="h4-2"><strong>PROCESS</strong></h4>
+            <h2>Ingeniería, insumos y construcción de equipos para tratamiento de aguas.</h2>
         </div>
         <div class="photo">
             <div class="collage">
@@ -43,29 +43,30 @@
     </div>
 
     <!--Seccion acerca de nosotros / quienes somos-->
-    <div class="section" id="quienes" style="display: flex; gap: 20px;">
-
-        <h4>Quienes Somos</h4>
-
-        <div class="photo">
-            <img src="{% static 'images/FOTO ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+    <div class="quienes-section" id="quienes">
+        <div class="quienes-container">
+            <h4>Quienes Somos</h4>
+            <div class="content">
+                <div class="photo">
+                    <img src="{% static 'images/FOTO ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+                </div>
+                <div class="text">
+                    <h2><strong>VAI Process</strong> </h2>
+                    <p>
+                        Somos una empresa de ingeniería y construcción especializada en el tratamiento de aguas.
+                        Proveemos equipos, insumos y sistemas de purificación y acondicionamiento de agua para aplicaciones domiciliarias,
+                        comerciales e industriales, desarrollando soluciones específicas para cada caso.
+                    </p>
+                    <p>
+                        Entre nuestros productos y servicios, se incluyen plantas de ósmosis, plantas potabilizadoras, tratamiento de agua para
+                        torres de enfriamiento, sistemas de filtración, sistemas ultravioletas, sistemas de dosificación, instrumentación,
+                        resinas de intercambio iónico, mantenimiento, limpieza y desinfección de estanques de agua potable, análisis de
+                        laboratorio certificado, entre otros.
+                    </p>
+                </div>
+            </div>
         </div>
-
-        <div class="text">
-            <h2><strong>VAI Process</strong> </h2>
-            <p>
-                Somos una empresa de ingeniería y construcción especializada en el tratamiento de aguas.
-                Proveemos equipos, insumos y sistemas de purificación y acondicionamiento de agua para aplicaciones domiciliarias,
-                comerciales e industriales, desarrollando soluciones específicas para cada caso.
-            </p>
-            <p>
-                Entre nuestros productos y servicios, se incluyen plantas de ósmosis, plantas potabilizadoras, tratamiento de agua para
-                torres de enfriamiento, sistemas de filtración, sistemas ultravioletas, sistemas de dosificación, instrumentación,
-                resinas de intercambio iónico, mantenimiento, limpieza y desinfección de estanques de agua potable, análisis de
-                laboratorio certificado, entre otros.
-            </p>
-        </div>
-  </div>
+    </div>
 
 {% endblock %}
 

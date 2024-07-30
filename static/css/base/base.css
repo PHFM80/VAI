@@ -1,0 +1,30 @@
+/* Asegúrate de que html y body ocupen toda la altura de la ventana */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
+
+/* Contenedor principal */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura completa de la ventana */
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row > .col-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row.flex-grow-1 {
+    flex: 1;
+}
+
+

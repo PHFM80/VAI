@@ -4,7 +4,11 @@
 {% block title %} Servicios {% endblock %}
 
 {% block extra_styles %}
-<!-- Espacio para estilos específicos de cada página -->
+  <link rel="stylesheet" href="{% static 'css/home/servicios/servicios.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/servicios/servicios-portada.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/servicios/contenedor-servicios.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/servicios/servicios-contenido.css' %}">
+
 {% endblock %}
 
 <!-- Header -->
@@ -24,178 +28,248 @@
 <!-- Main Content -->
 {% block content %}
 <!-- Sección de Servicios -->
-<section class="section" id="servicios">
+<section class="servicios-section" id="servicios">
+
+  <div class="servicios-portada">
+    <div class="onda">
+      <img src="{% static 'images/servicioportada.webp' %}" alt="Portada de Servicios">
+    </div>
     <h2>Nuestros Servicios</h2>
+  </div>
 
-    <!-- Servicio 1   Tratamientos de olores --> 
-    <div class="servicios"></div>
+  <div class="contenedor-servicios">
+    <div class="servicios-contenido-externo">
+      
+      <!-- Servicio 1   TRATAMIENTOS DE AGUAS --> 
+      <div class="servicios-contenido">
+        <div class="servicio1">
+          <div class="titulosecundario">
+            <h3>TRATAMIENTOS DE AGUAS</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Lavado qímico, torres de enfriamiento y condensadores.</li>
+                <li>Mantención, reparación y venta de ablandadores y filtros.</li>
+                <li>Porta filtros. </li>
+                <li>Filtros cartuchos.</li>
+                <li>Operación y control de plantas de agua potable, riles y aguas servidas.</li>
+            </ul>
+            </div>
+            <!-- inicio columna carrusel -->
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio1.html' %}
+            </div>
+            <!-- fin columna carrusel -->
+          </div>
+        </div>
+      </div>
 
-    <!-- Servicio 2   Tratamiento de agua--> 
-    <div class="servicios"></div>
+      <!-- Servicio 2   ABLANDSADORES DE AGUA--> 
+      <div class="servicios-contenido">
+        <div class="servicio2">
+          <div class="titulosecundario">
+            <h3>ABLANDADORES DE AGUA</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio2.html' %}
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Tanques de polipropileno reforzado en fibra de vidrio (PRFV).</li>
+                <li>Resina de intercambio iónico.</li>
+                <li>Cabezal de control automático, con regeneración por tiempo o caudal.</li>
+                <li>Tanque y válvula de salmuera de polipropileno.</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Servicio 3    FILTROS AUTOMÁTICOS--> 
+      <div class="servicios-contenido">
+        <div class="servicio3">
+          <div class="titulosecundario">
+            <h3>FILTROS AUTOMÁTICOS</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Filtro Multimedia.</li>
+                <li>Filtro Greensand.</li>
+                <li>Filtro Carbón Activado.</li>
+                <li>Filtro Remoción Arsénico.</li>
+                <li>Filtro Remoción Nitrato.</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio3.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Servicio 4 OSMOSIS INVERSA-->
+      <div class="servicios-contenido">
+        <div class="servicio4">
+            <div class="titulosecundario">
+                <h3>OSMOSIS INVERSA</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  {% include 'home/servicios/carousel-servicio4.html' %}
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Interruptores de baja y alta presión.</li>
+                        <li>Válvula solenoide.</li>
+                        <li>Bomba de alta presión.</li>
+                        <li>Membranas y porta-membranas.</li>
+                        <li>Tablero de protección de motor.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
 
-    <!-- Servicio 3    Impermeabilizacion y revestimiento--> 
-    <div class="servicios"></div>
+      <!-- Servicio 5    FILTROS Y MEMBRANAS--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+          <div class="titulosecundario">
+            <h3>FILTROS Y MEMBRANAS</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Filtros de polipropileno.</li>
+                <li>Filtros de carbón activado.</li>
+                <li>Filtros rellenables y carcasas.</li>
+                <li>Membranas para osmosis inversa.</li>
+                <li>Llaves para carcasa y clips.</li>
+              </ul> 
+            </div>
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio5.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+     
+        <!-- Servicio 6    BOMBAS DOSIFICADORAS--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+          <div class="titulosecundario">
+            <h3>BOMBAS DOSIFICADORAS</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio6.html' %}
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Bombas electromagnéticas con dosificación constante.</li>
+                <li>Bombas de funcionamiento proporcional, sin electricidad.</li>
+                <li>Dosificación homogénea y exacta.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Servicio 7    TRATAMIENTOS DE OLORES--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+        <div class="titulosecundario">
+          <h3>TRATAMIENTOS DE OLORES</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <ul>
+              <li>Productos Químicos // EliminOdor.</li>
+              <li>Equipos de Neutralización por aspersión.</li>
+              <li>Equipos de Neutralización automáticos por control de variables (Viento, Velocidad, Dirección, Tiempo).</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            {% include 'home/servicios/carousel-servicio7.html' %}
+          </div>
+        </div>
+        </div>
+      </div>
 
-    <!-- Servicio 4    Obras Civiles--> 
-    <div class="servicios"></div>
+      <!-- Servicio 8    IMPERMEABILIZACIÓN Y REVESTIMIETOS--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+          <div class="titulosecundario">
+            <h3>IMPERMEABILIZACIÓN Y REVESTIMIETOS</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio8.html' %}
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Resinas Autonivelantes.</li>
+                <li>Impermeabilización líquida en frío.</li>
+                <li>Poliureas para sistemas de protección.</li>
+                <li>Impermeabilización proyectados en caliente.</li>
+                <li>Acabado alifático para sistemas de impermeabilización.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 9    Obras Civiles--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+          <div class="titulosecundario">
+            <h3>OBRAS CIVILES</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Bodegas.</li>
+                <li>Galpones.</li>
+                <li>Radiers y losas.</li>
+                <li>Estructuras metalicas.</li>
+                <li>Construccion de canchas deportivas.</li>
+            </ul>
+            </div>
+            <div class="col-md-6">
+              {% include 'home/servicios/carousel-servicio9.html' %}
+            </div>
+          </div>
+
     
+        </div>
+      </div>
 
-    <!-- Subservicios que deben ir dentro de los servicios principales -->
-    <div>
-      <!-- Servicio 1 -->
-    <div class="servicio">
-      <div class="servicio-foto">
-          <img src="f{% static 'image/servicio' %}" alt="Tratamientos de olores">
+      <!-- Servicio 10    Nuestros Clientes--> 
+      <div class="servicios-contenido">
+        <div class="servicio4">
+          <div class="titulosecundario">
+            <h3>NUESTROS CLIENTES</h3>
+          </div>
+          <div class="row">
+              {% include 'home/servicios/nuestros-clientes.html' %}
+          </div>
+        </div>
       </div>
-      <div class="servicio-descripcion">
-          <h3>Tratamientos de olores</h3>
-          <ul>
-            <li>Productos Químicos // EliminOdor.</li>
-            <li>Equipos de Neutralización por aspersión.</li>
-            <li>Equipos de Neutralización automáticos por control de variables (Viento, Velocidad, Dirección, Tiempo).</li>
-        </ul>
-      </div>
-  </div>
 
-  <!-- Servicio 2 -->
-  <div class="servicio">
-      <div class="servicio-descripcion">
-          <h3>Obras Civiles</h3>
-          <ul>
-            <li>Bodegas</li>
-            <li>Galpones</li>
-            <li>Rádieres y Losas</li>
-            <li>Estructuras en Metal</li>
-            <li>Construcción de canchas deportivas</li>
-        </ul>
-      </div>
-      <div class="servicio-foto">
-        <img src="fotos/servicio2.png" alt="Obras Civiles">
     </div>
   </div>
 
-  <!-- Servicio 3 -->
-  <div class="servicio">
-      <div class="servicio-foto">
-          <img src="fotos/servicio3.png" alt="Tratamientos de Aguas">
-      </div>
-      <div class="servicio-descripcion">
-          <h3>Tratamientos de Aguas</h3>
-          <ul>
-            <li>Lavado Químico Torres de enfriamiento y condensadores.</li>
-            <li>Mantención, Reparación y venta de Ablandadores y filtros.</li>
-            <li>Porta filtros y filtros cartuchos.</li>
-            <li>Operación y Control de Plantas de Agua Potable, RILes y Aguas Servidas.</li>
-        </ul>
-      </div>
-  </div>
-
-  <!-- Servicio 4 -->
-  <div class="servicio">
-      <div class="servicio-descripcion">
-          <h3>Impermeabilización y Revestimientos</h3>
-          <ul>
-            <li>Resinas Autonivelantes.</li>
-            <li>Impermeabilización líquida en frío.</li>
-            <li>Poliureas para sistemas de protección.</li>
-            <li>Impermeabilización proyectados en caliente.</li>
-            <li>Acabado alifático para sistemas de impermeabilización.</li>
-        </ul>
-      </div>
-      <div class="servicio-foto">
-        <img src="fotos/servicio4.jpg" alt="Impermeabilización y Revestimientos">
-    </div>
-  </div>
-
-  <!-- Servicio 5 -->
-  <div class="servicio">
-      <div class="servicio-foto">
-          <img src="fotos/servicio5.1.webp" alt="Ablandadores de Agua">
-      </div>
-      <div class="servicio-descripcion">
-          <h3>Ablandadores de Agua</h3>
-          <ul>
-            <li>Tanques de polipropileno reforzado en fibra de vidrio (PRFV).</li>
-            <li>Resina de intercambio iónico.</li>
-            <li>Cabezal de control automático, con regeneración por tiempo o caudal.</li>
-            <li>Tanque y válvula de salmuera de polipropileno.</li>
-        </ul>
-      </div>
-  </div>
-
-  <!-- Servicio 6 -->
-  <div class="servicio">
-      <div class="servicio-descripcion">
-          <h3>Filtros Automáticos</h3>
-          <ul>
-            <li>Filtro Multimedia.</li>
-            <li>Filtro Greensand.</li>
-            <li>Filtro Carbón Activado.</li>
-            <li>Filtro Remoción Arsénico.</li>
-            <li>Filtro Remoción Nitrato.</li>
-        </ul>
-      </div>
-      <div la="servicio-foto">
-        <img src="fotos/servicio6.png" alt="Filtros Automáticos">
-    </div>
-  </div>
-
-  <!-- Servicio 7 -->
-  <div class="servicio">
-      <div la="servicio-foto">
-          <img src="fotos/servicio7.2.jpeg" alt="Osmosis Inversa">
-      </div>
-      <div la="servicio-descripcion">
-          <h3>Osmosis Inversa</h3>
-          <ul>
-            <li>Interruptores de baja y alta presión.</li>
-            <li>Válvula solenoide.</li>
-            <li>Bomba de alta presión.</li>
-            <li>Membranas y porta-membranas.</li>
-            <li>Tablero de protección de motor.</li>
-        </ul>
-      </div>
-  </div>
-
-  <!-- Servicio 8 -->
-  <div class="servicio">
-      <div la="servicio-descripcion">
-          <h3>Filtros y Membranas</h3>
-          <ul>
-            <li>Filtros de polipropileno.</li>
-            <li>Filtros de carbón activado.</li>
-            <li>Filtros rellenables y carcasas.</li>
-            <li>Membranas para osmosis inversa.</li>
-            <li>Llaves para carcasa y clips.</li>
-        </ul>
-      </div>
-      <div la="servicio-foto">
-        <img src="fotos/servicio8.1.jpeg" alt="Filtros y Membranas">
-    </div>
-  </div>
-
-  <!-- Servicio 9 -->
-  <div class="servicio">
-      <div la="servicio-foto">
-          <img src="fotos/servicio9.1.webp" alt="Bombas Dosificadoras">
-      </div>
-      <div la="servicio-descripcion">
-          <h3>Bombas Dosificadoras</h3>
-          <ul>
-            <li>Bombas electromagnéticas con dosificación constante.</li>
-            <li>Bombas de funcionamiento proporcional, sin electricidad.</li>
-            <li>Dosificación homogénea y exacta.</li>
-        </ul>
-      </div>
-  </div>
-    </div>
-    
-
-  </section>
+</section>
 {% endblock %}
 
 
 <!-- Footer -->
 {% block footer_izquierda %}
     {% include 'home/listasecciones.html' %}
+{% endblock %}
+
+
+{% block extra_scripts %}
+  <!-- espacio para mas scripts -->
 {% endblock %}

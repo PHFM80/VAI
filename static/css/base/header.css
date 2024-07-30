@@ -1,0 +1,28 @@
+/* Header pegajoso en la parte superior */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 10; /* Asegura que el header esté por encima del contenido de la portada */
+}
+
+/* Ajustes de la navbar para eliminar márgenes y padding no deseados */
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background-color: #13579a;
+    padding: 0 5%;
+}
+
+/* Ajuste del logo */
+.header-column img.logo-img {
+    width: 50%;
+    max-height: 100%;
+}
+
+
