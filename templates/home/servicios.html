@@ -6,7 +6,7 @@
 {% block extra_styles %}
   <link rel="stylesheet" href="{% static 'css/home/servicios/servicios.css' %}">
   <link rel="stylesheet" href="{% static 'css/home/servicios/servicios-portada.css' %}">
-  <link rel="stylesheet" href="{% static 'css/home/servicios/contenedor-servicios.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/servicios/servicios-contenedor.css' %}">
   <link rel="stylesheet" href="{% static 'css/home/servicios/servicios-contenido.css' %}">
 
 {% endblock %}
@@ -32,12 +32,12 @@
 
   <div class="servicios-portada">
     <div class="onda">
-      <img src="{% static 'images/servicioportada.webp' %}" alt="Portada de Servicios">
+      <img src="{% static 'images/portada.webp' %}" alt="Portada de Servicios">
     </div>
-    <h2>Nuestros Servicios</h2>
+    <h2>NUESTROS SERVICIOS</h2>
   </div>
 
-  <div class="contenedor-servicios">
+  <div class="servicios-contenedor">
     <div class="servicios-contenido-externo">
       
       <!-- Servicio 1   TRATAMIENTOS DE AGUAS --> 
@@ -234,7 +234,7 @@
                 <li>Radiers y losas.</li>
                 <li>Estructuras metalicas.</li>
                 <li>Construccion de canchas deportivas.</li>
-            </ul>
+              </ul>
             </div>
             <div class="col-md-6">
               {% include 'home/servicios/carousel-servicio9.html' %}

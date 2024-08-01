@@ -5,21 +5,52 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around; /* Centramos la lista */
     align-items: center;
 }
 
 .nav-list li {
-    margin-right: 15px;
+    margin: 15px; /* Margen horizontal entre los elementos */
 }
 
 .nav-list a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     padding: 10px 15px;
+    font-size: 1.4rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    transition: color 0.3s ease; /* Añade una transición suave */
 }
 
 .nav-list a:hover {
-    text-decoration: underline;
+
     color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255); /* Recuadro blanco alrededor del enlace */
+    border-radius: 4px; /* Opcional: esquina redondeada para el recuadro */
+    padding: 8px 13px; /* Ajusta el padding para compensar el recuadro */
+}
+
+/* CSS para manejar la visibilidad de los elementos activos */
+.nav-list li.active a {
+    font-weight: bold; /* Ejemplo de estilo para el elemento activo */
+}
+
+/* Ocultar el enlace activo */
+.nav-list li.active {
+    display: none; /* Oculta el elemento activo */
+}
+
+/* Estilo para pantallas pequeñas (cuando se necesitan apilar los elementos) */
+@media (max-width: 768px) {
+    .nav-list {
+        display: block;
+    }
+    
+    .nav-list li {
+        margin-right: 0; /* Elimina el margen derecho en pantallas pequeñas */
+        margin-bottom: 10px; /* Agrega un margen inferior entre los elementos */
+    }
+    
+    .nav-list a {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
 }

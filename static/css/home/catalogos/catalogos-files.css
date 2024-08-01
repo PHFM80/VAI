@@ -1,0 +1,69 @@
+
+.catalogos-files {
+    position: relative;
+    margin: 10vh 15vh; /* Márgenes de 5vh en todas las direcciones */
+    padding: 5vh; /* Padding de 2vh para que sea responsivo */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+    z-index: 1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+}
+
+.catalogos-files::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(/static/images/Five-Circle-Collage.webp); /* Establece la imagen de fondo */
+    background-repeat: repeat; /* Repite la imagen en ambas direcciones */
+    background-size: 55vw 55vh; /* Ajusta el tamaño de la imagen para que sea más pequeña y se repita adecuadamente */
+    background-position: center; /* Centra la imagen en el contenedor */
+    opacity: 0.1; /* Ajusta la transparencia de la imagen */
+    z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+}
+
+
+
+
+.files-container {
+    width: 90%; /* Ajusta el ancho del contenedor, por ejemplo, al 90% del contenedor padre */
+    height: auto; /* Ajusta la altura automáticamente según el contenido */
+    margin: 5% auto; /* Centra el contenedor horizontalmente */
+    padding: 3%; /* Espacio interno, ajusta según sea necesario */
+    position: relative; /* Permite el uso de posicionamiento relativo */
+
+}
+/* Contenedor principal para los catálogos */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los items se ajusten a múltiples líneas si es necesario */
+}
+
+/* Estilo para cada catálogo */
+.catalogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que el contenido se distribuya uniformemente */
+    align-items: center; /* Centra los elementos dentro del catálogo */
+    height: 100%; /* Asegura que el catálogo tome toda la altura disponible */
+}
+
+/* Contenedor de la imagen */
+.imagen-catalogo {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 60%; /* Ajusta la altura de la imagen como necesites */
+}
+
+.imagen-catalogo img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10%;
+}
+
+/* Contenedor del botón */
+
+.link-descarga a {
+    text-align: center; /* Asegura que el texto del botón esté centrado */
+}

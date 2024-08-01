@@ -9,7 +9,8 @@
     padding: 0px 75px 30px 200px; /* Top Right Bottom Left */
     overflow: hidden; /* Para ocultar las estrellas que se salen del contenedor */
     position: relative; /* Asegura que las estrellas se posicionen correctamente */
-    background-image: url(/static/images/azul-degrade.webp);
+    background-image: url(/static/images/4.webp);
+    /* background-image: url(/static/images/azul-degrade.webp); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,6 +26,7 @@
 
 /* Especificar que los elementos h2 y h3 dentro de .portada no se inviertan */
 .portada h2, .portada h4 {
+    letter-spacing: 0.2em; /* Ajusta el espaciado entre letras según sea necesario */
     transform: scaleX(1);
 }
 

@@ -1,5 +1,4 @@
-
-.servicios-section {
+.acerca-main {
     margin: 0; /* Elimina cualquier margen externo */
     padding: 0; /* Elimina cualquier padding interno */
     position: relative; /* Permite el uso de posicionamiento relativo */
@@ -7,6 +6,5 @@
     background-size: contain; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
     background-position: center; /* Centra la imagen en el contenedor */
     background-repeat: repeat; /* Evita que la imagen se repita */
-
+    
 }
-

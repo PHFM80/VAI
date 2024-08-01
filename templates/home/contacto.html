@@ -4,7 +4,11 @@
 {% block title %} Contacto {% endblock %}
 
 {% block extra_styles %}
-<!-- Espacio para estilos específicos de cada página -->
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-main.css' %}">
+ <link rel="stylesheet" href="{% static 'css/home/contacto/contacto-portada.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-formulario.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-info.css' %}">
+
 {% endblock %}
 
 <!-- Header -->
@@ -23,61 +27,73 @@
 
 <!-- Main Content -->
 {% block content %}
-<div style="display: flex; justify-content: space-between; align-items: center;">
-
-    <!-- Información de Contacto -->
-    <div class="contacto-info" style="flex-basis: 40%; text-align: center;">
-      <h3>Información de Contacto</h3>
-      <p><strong>Dirección:</strong> Av. Alonso de Córdova 58710, Las Condes</p>
-      <p><strong>Correo Electrónico:</strong> ventas@vaiprocess.cl</p>
-      <p><strong>Teléfono:</strong> +56 9 7554 1835</p>
+  <div class="contacto-main row">
+      <!-- PORTADA CONTACTO -->
+      <div class="contacto-portada">
+        <img src="{% static 'images/portada.webp' %}" alt="Portada de Servicios">
+        <h2>CONTACTO</h2>
     </div>
 
-    <!-- Formulario de Contacto -->
-    <div class="contacto-formulario" style="flex-basis: 55%;">
-      <h3>Solicita Información</h3>
-      <form action="#" method="post">
-        <!-- Nombre y Apellido en la misma línea -->
-        <div style="display: flex; gap: 10px;">
-          <div style="flex-basis: 50%;">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-          </div>
-          <div style="flex-basis: 50%;">
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
-          </div>
+    <div class="contacto-contenedor row" style="display: flex; justify-content: space-between; align-items: center;">
+
+      <!-- Información de Contacto -->
+      <div class="contacto-info" >
+        <h3>Información de Contacto</h3>
+        <p><strong>Dirección:</strong> Av. Alonso de Córdova 58710, Las Condes</p>
+        <p><strong>Correo Electrónico:</strong> ventas@vaiprocess.cl</p>
+        <p><strong>Teléfono:</strong> +56 9 7554 1835</p>
+      </div>
+
+      <!-- Formulario de Contacto -->
+      <div class="contacto-formulario" >
+        <div class="form-header">
+          <h3>Solicita Información</h3>
         </div>
-    
-        <!-- Empresa y Teléfono en la misma línea -->
-        <div style="display: flex; gap: 10px; margin-top: 10px;">
-          <div style="flex-basis: 50%;">
-            <label for="empresa">Empresa:</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Tu empresa">
+        <form action="#" method="post">
+          <!-- Nombre y Apellido en la misma línea -->
+          <div style="display: flex">
+            <div style="flex-basis: 50%;">
+              <label for="nombre">Apellido y nombre:</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tus datos" required>
+            </div>
+            <div style="flex-basis: 50%;">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
+            </div>
           </div>
-          <div style="flex-basis: 50%;">
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
+      
+          <!-- Empresa y Correo en la misma línea -->
+          <div style="display: flex">
+            <div style="flex-basis: 50%;">
+              <label for="empresa">Empresa:</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Tu empresa">
+            </div>
+            <div style="flex-basis: 50%;">
+              <label for="correo-electronico">Email:</label>
+              <input type="email" id="email" name="email" placeholder="Tu correo electrónico." required>
+            </div>
           </div>
-        </div>
+      
+          <!-- Campo para el asunto -->
+          <div style="flex-basis: 50%;">
+            <label for="empresa">Asunto:</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Escribe un asunto." required>
+          </div>
+      
+          <!-- Campo para el Mensaje -->
+          <div>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
+          </div>
+      
+          <!-- Botón para enviar el formulario -->
+          <div class="form-footer">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>    
     
-        <!-- Campo para el Correo Electrónico -->
-        <div>
-          <label for="correo-electronico">Correo Electrónico:</label>
-          <input type="email" id="correo-electronico" name="correo-electronico" placeholder="Tu correo electrónico" required>
-        </div>
-    
-        <!-- Campo para el Mensaje -->
-        <div>
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
-        </div>
-    
-        <!-- Botón para enviar el formulario -->
-        <button type="submit">Enviar</button>
-      </form>
-    </div>    
-    
+    </div> 
   </div>
 {% endblock %}
 

@@ -4,9 +4,9 @@
 {% block title %} Catalogos {% endblock %}
 
 {% block extra_styles %}
-  <link rel="stylesheet" href="{% static 'css/home/catalogos/catalogo.css' %}">
-  <link rel="stylesheet" href="{% static 'css/home/catalogos/portada-catalogos.css' %}">
-  <link rel="stylesheet" href="{% static 'css/home/catalogos/contenedor-catalogos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/catalogos/catalogos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/catalogos/catalogos-portada.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home/catalogos/catalogos-files.css' %}">
 {% endblock %}
 
 <!-- Header -->
@@ -25,69 +25,71 @@
 
 <!-- Main Content -->
 {% block content %}
-<!-- Contenedor Principal -->
-<div class="container my-5">
-  <!-- Contenedor de Portada -->
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="portada">
-        <img src="{% static 'images/servicioportada.webp' %}" alt="Portada de Servicios">
-        <h2>Nuestros Servicios</h2>
-      </div>
+    <!-- Contenedor Principal -->
+    <div class="catalogos-container">
+        <!-- Contenedor de Portada -->
+        <div class="catalogos-portada">
+            <div class="onda">
+                <img src="{% static 'images/portada.webp' %}" alt="Portada de Servicios">
+                <h2>CATÁLOGOS</h2>
+            </div>
+        </div>
+        <!-- Contenedor de files -->
+        <div class="catalogos-files">
+            <!-- Contenedor de Catálogos -->
+            <div class="row files-container">
+                <!-- Contenedor 1 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="catalogo">
+                        <div class="imagen-catalogo">
+                            <img src="{% static 'images/catalogo-krypton.webp' %}" class="img-fluid" alt="Catálogo 1">
+                        </div>
+                        <div class="link-descarga mt-2">
+                            <a href="{% static 'files/Catalogo-General-Krypton-Chemical_ES-1.pdf' %}" class="btn btn-primary" download>Descargar Catalogo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor 2 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="catalogo">
+                        <div class="imagen-catalogo">
+                            <img src="{% static 'images/catalogo-gratt.webp' %}" class="img-fluid" alt="Catálogo 2">
+                        </div>
+                        <div class="link-descarga mt-2">
+                            <a href="{% static 'files/CATALOGO-EQUIPAMENTOS-GRATT-2019-ESPANHOL-2.pdf' %}" class="btn btn-primary" download>Descargar Catalogo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor 3 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="catalogo">
+                        <div class="imagen-catalogo">
+                            <img src="{% static 'images/catalogo-vai.webp' %}" class="img-fluid" alt="Catálogo 3">
+                        </div>
+                        <div class="link-descarga mt-2">
+                            <a href="{% static 'files/Presentacion-Vai-Process-2022.pdf' %}" class="btn btn-primary" download>Descargar Catalogo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor 4 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="catalogo">
+                        <div class="imagen-catalogo">
+                            <img src="{% static 'images/catalogo-vai.webp' %}" class="img-fluid" alt="Catálogo 4">
+                        </div>
+                        <div class="link-descarga mt-2">
+                            <a href="{% static 'files/Vai-Process-Tratamiento-de-Olores-2022.pdf' %}" class="btn btn-primary" download>Descargar Catalogo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-
-  <!-- Contenedor de Catálogos -->
-  <div class="row">
-      <!-- Contenedor 1 -->
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="catalogo">
-              <div class="imagen-catalogo">
-                  <img src="{% static 'images/catalogo-krypton.webp' %}" class="img-fluid" alt="Catálogo 1">
-              </div>
-              <div class="link-descarga mt-2">
-                  <a href="{% static 'files/Catalogo-General-Krypton-Chemical_ES-1.pdf' %}" class="btn btn-primary" download>Descargar Catálogo 1</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Contenedor 2 -->
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="catalogo">
-              <div class="imagen-catalogo">
-                  <img src="{% static 'images/catalogo-gratt.webp' %}" class="img-fluid" alt="Catálogo 2">
-              </div>
-              <div class="link-descarga mt-2">
-                  <a href="{% static 'files/CATALOGO-EQUIPAMENTOS-GRATT-2019-ESPANHOL-2.pdf' %}" class="btn btn-primary" download>Descargar Catálogo 2</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Contenedor 3 -->
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="catalogo">
-              <div class="imagen-catalogo">
-                  <img src="{% static 'images/catalogo-vai.webp' %}" class="img-fluid" alt="Catálogo 3">
-              </div>
-              <div class="link-descarga mt-2">
-                  <a href="{% static 'files/Presentacion-Vai-Process-2022.pdf' %}" class="btn btn-primary" download>Descargar Catálogo 3</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Contenedor 4 -->
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="catalogo">
-              <div class="imagen-catalogo">
-                  <img src="{% static 'images/catalogo-vai.webp' %}" class="img-fluid" alt="Catálogo 4">
-              </div>
-              <div class="link-descarga mt-2">
-                  <a href="{% static 'files/Vai-Process-Tratamiento-de-Olores-2022.pdf' %}" class="btn btn-primary" download>Descargar Catálogo 4</a>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
 {% endblock %}
 
 

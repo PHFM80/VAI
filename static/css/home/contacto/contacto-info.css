@@ -1,0 +1,44 @@
+.contacto-info {
+    flex-basis: 40%;
+    padding: 2vh;
+    background-color: rgba(50, 67, 87, 0.7); /* Fondo celeste semitransparente */
+    text-align: center;
+}
+
+
+.contacto-info h3 {
+    font-size: 2vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: white; /* Establece el color del texto en blanco */
+    letter-spacing: 0.1em; /* Ajusta el espaciado entre letras */
+}
+
+.contacto-info p {
+    font-size: 1.5vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: white; /* Establece el color del texto en blanco */
+
+}
+
+
+/* Media queries para diferentes tamaños de pantalla */
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+    .contacto-info h3 {
+        font-size: 4vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    }
+
+    .contacto-info p {
+        font-size: 3vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    }
+}
+
+/* Pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    .contacto-info h3 {
+        font-size: 5vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    }
+
+    .contacto-info p {
+        font-size: 4vw; /* Ajusta el tamaño de la fuente según sea necesario */
+    }
+}

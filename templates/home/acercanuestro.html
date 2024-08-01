@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Contacto {% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/home/acercanuestro/acercanuestro.css' %}">
+ <link rel="stylesheet" href="{% static 'css/home/acercanuestro/acerca-portada.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/acercanuestro/acerca-contenedor.css' %}">
+
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/listasecciones.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Iniciar Sesión" button_url="login" %}
+        {% include 'home/botonheader.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+  <div class="acerca-main row">
+      <!-- PORTADA ACERCA -->
+      <div class="acerca-portada">
+        <img src="{% static 'images/portada.webp' %}" alt="Portada de Servicios">
+        <h2>ACERCA NUESTRO</h2>
+    </div>
+      <!-- QUIENES SOMOS -->
+    <div class="acerca-contenedor row" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="acerca-container">
+            <div class="quienes-header">
+                <h4>Quienes Somos</h4>
+            </div>
+            <div class="content">
+                <div class="photo">
+                    <img src="{% static 'images/FOTO-ACERCA.jpg' %}" alt="Foto de la empresa" class="rounded-photo">
+                </div>
+                <div class="text">
+                    <h2><strong>VAI Process</strong> </h2>
+                    <p>
+                        Somos una empresa de ingeniería y construcción especializada en el tratamiento de aguas.
+                        Proveemos equipos, insumos y sistemas de purificación y acondicionamiento de agua para aplicaciones domiciliarias,
+                        comerciales e industriales, desarrollando soluciones específicas para cada caso.
+                    </p>
+                    <p>
+                        Entre nuestros productos y servicios, se incluyen plantas de ósmosis, plantas potabilizadoras, tratamiento de agua para
+                        torres de enfriamiento, sistemas de filtración, sistemas ultravioletas, sistemas de dosificación, instrumentación,
+                        resinas de intercambio iónico, mantenimiento, limpieza y desinfección de estanques de agua potable, análisis de
+                        laboratorio certificado, entre otros.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NUESTROS CLIENTES -->
+        <div class="acerca-container" >
+            {% include 'home/servicios/nuestros-clientes.html' %}
+        </div>
+    </div> 
+
+  </div>
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+    {% include 'home/listasecciones.html' %}
+{% endblock %}
