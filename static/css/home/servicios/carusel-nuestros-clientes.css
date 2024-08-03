@@ -1,0 +1,61 @@
+
+
+.carusel-clientes {
+    display: grid;
+    place-items: center;
+}
+
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    /* background: rgb(255, 255, 255);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4); */
+}
+
+.slider-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: max-content; /* Ajusta el ancho según el contenido */
+    animation: scrolling 15s linear infinite;
+
+}
+
+@keyframes scrolling {
+
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slider-items img {
+    width: 12%;
+    margin: 20px;
+
+}
+
+
+.titulosecundario h3 {
+    color: rgb(121, 195, 215); /* Ajusta el color del texto según sea necesario */
+    font-size: calc(2.5rem + 1vw); /* Tamaño ajustable según el ancho de la pantalla */
+}
+
+.titulosecundario {
+    text-align: center; /* Centra el texto dentro de .titulosecundario */
+    padding-bottom: 5vh; /* Ajusta el padding a un porcentaje de la altura del viewport */
+}
+

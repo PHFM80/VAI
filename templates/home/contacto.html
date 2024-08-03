@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Contacto {% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-main.css' %}">
+ <link rel="stylesheet" href="{% static 'css/home/contacto/contacto-portada.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-formulario.css' %}">
+<link rel="stylesheet" href="{% static 'css/home/contacto/contacto-info.css' %}">
+
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Iniciar Sesión" button_url="login" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+  <div class="contacto-main row">
+      <div class="contacto-portada">
+        <img src="{% static 'images/portada.webp' %}" alt="Portada de Servicios">
+        <h2>CONTACTO</h2>
+    </div>
+
+    <div class="contacto-contenedor row" style="display: flex; justify-content: space-between; align-items: center;">
+
+      <div class="contacto-info">
+        <h3>Información de Contacto</h3>
+        <p><strong>Dirección:</strong> Av. Alonso de Córdova 58710, Las Condes</p>
+        <p><strong>Correo Electrónico:</strong> ventas@vaiprocess.cl</p>
+        <p><strong>Teléfono:</strong> +56 9 7554 1835</p>
+      </div>
+
+      <div class="contacto-formulario">
+        {% if mensaje_enviado %}
+            <p>Gracias por comunicarse con Vai Process SpA&reg;.</p>
+            <p>En breve un asesor se pondrá en contacto con usted.</p>
+        {% else %}
+            <div class="form-header">
+                <h3>Solicita Información</h3>
+            </div>
+            <form action="{% url 'contacto' %}" method="post">
+                {% csrf_token %}
+                <table>
+                    {% for field in form %}
+                        <tr>
+                            <td>{{ field.label_tag }}</td>
+                            <td>{{ field }}</td>
+                            {% if field.errors %}
+                                <td style="color: red;">{{ field.errors }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+            </form>
+        {% endif %}
+      </div>    
+
+    </div> 
+  </div>
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}

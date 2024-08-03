@@ -1,0 +1,40 @@
+/* Asegura que el contenedor ocupe todo el ancho posible */
+.contenedor {
+    width: 100%;
+    text-align: center; /* Centra el contenido horizontalmente */
+    padding: 20px;
+}
+
+/* Estilos para el título */
+.contenedor .titulo p {
+    color: white;
+    font-size: 1.5rem; /* Tamaño de fuente mayor */
+    margin-bottom: 20px; /* Añade un margen inferior para separar el título del botón */
+}
+
+/* Personalización del botón */
+.btn-custom {
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 1rem; /* Tamaño más grande */
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contenedor .titulo p {
+        font-size: 1rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    }
+
+    .btn-custom {
+        font-size: 0.5rem; /* Ajusta el tamaño del botón para pantallas más pequeñas */
+        padding: 8px 16px; /* Ajusta el relleno del botón para pantallas más pequeñas */
+    }
+}

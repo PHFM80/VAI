@@ -1,0 +1,17 @@
+/* Clase personalizada para el botón */
+.custom-btn {
+    background-color: #234167; /* Color celeste grisáceo suave */
+    color: white; /* Color de las letras*/
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none;
+    display: inline-block;
+
+}
+
+/* Estilo para el estado hover */
+.custom-btn:hover {
+    background-color: #0f20dd; /* Azul al pasar el mouse */
+    color: white; /* Mantiene las letras blancas */
+}

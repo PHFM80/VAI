@@ -1,0 +1,102 @@
+
+.acerca-contenedor {
+    position: relative;
+    margin: 5vh auto; /* Márgenes de 10vh arriba y abajo, centrado horizontalmente */
+    padding: 15vh; /* Padding de 5vh para que sea responsivo */
+    max-width: 90%; /* Limita el ancho máximo del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+    z-index: 1; /* Asegura que el contenido esté por delante de la imagen */
+
+}
+
+.acerca-contenedor::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/static/images/Five-Circle-Collage.webp'); /* Establece la imagen de fondo */
+    background-repeat: repeat; /* Repite la imagen en ambas direcciones */
+    background-size: 55vw 55vh; /* Ajusta el tamaño de la imagen para que sea más pequeña y se repita adecuadamente */
+    background-position: center; /* Centra la imagen en el contenedor */
+    opacity: 0.1; /* Ajusta la transparencia de la imagen */
+    z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+}
+
+.acerca-container {
+    background-color: rgba(50, 67, 87, 0.7); /* Celeste transparente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    display: flex; /* Usar flexbox para alinear la foto y el texto */
+    gap: 20px; /* Espacio entre la foto y el texto */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    position: relative; /* Para asegurar el posicionamiento del contenido */
+}
+
+.photo, .text {
+    flex: 1; /* Ambos elementos ocuparán el mismo ancho */
+}
+
+.acerca-container h4 {
+    width: 100%; /* Asegura que el h4 ocupe todo el ancho del contenedor */
+    text-align: center; /* Centra el texto del h4 */
+    margin-bottom: 20px; /* Espacio inferior entre el título y el contenido */
+}
+
+.acerca-container h4 {
+    font-size: calc(2.5rem + 1vw); /* Tamaño ajustable según el ancho de la pantalla */
+    margin-bottom: 20px; /* Espacio inferior entre el título y el contenido */
+    color: rgb(121, 195, 215); /* Ajusta el color del texto según sea necesario */
+
+}
+
+.acerca-container .text h2 {
+    font-size: calc(1.5rem + 1vw); /* Tamaño ajustable según el ancho de la pantalla */
+    margin-bottom: 15px; /* Espacio inferior entre el subtítulo y el párrafo */
+    color: white;
+}
+
+.acerca-container .text p {
+    font-size: calc(1rem + 0.5vw); /* Tamaño ajustable según el ancho de la pantalla */
+    color: white;
+}
+
+.content {
+    display: flex; /* Disposición en línea */
+    gap: 20px; /* Espacio entre foto y texto */
+    align-items: flex-start; /* Alinea los elementos al inicio (parte superior) */
+}
+
+.photo {
+    margin-bottom: 20px; /* Espacio inferior entre la foto y el texto */
+    
+}
+
+.rounded-photo {
+    width: 100%; /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    box-shadow: 10px 10px 16px rgba(6, 83, 47, 0.5); /* Sombra con desenfoque */
+}
+
+.text {
+    color: #000;
+}
+
+
+/* Cuando la pantalla es más pequeña, apilar los elementos verticalmente */
+@media (max-width: 768px) {
+    .quienes-container {
+        flex-direction: column; /* Cambia la dirección a vertical */
+        align-items: center; /* Centra los elementos horizontalmente en la vista vertical */
+    }
+
+    .quienes-container .photo {
+        margin-bottom: 20px; /* Espacio inferior para la foto en vista vertical */
+    }
+}

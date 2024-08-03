@@ -1,0 +1,57 @@
+/* Footer siempre al final de la página */
+footer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #818597;
+    /* background-color: #13579a; */
+}
+
+/* Fondo y ajuste del footer */
+.footer-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0; /* Reducir el padding superior e inferior */
+    margin: 0;
+}
+
+.footer-container .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Ajustes adicionales para eliminar márgenes y padding no deseados en los elementos del footer */
+.footer-container .col-md-4,
+.footer-container .col-md-4,
+.footer-container .col-md-4 {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Estilos para texto centrado */
+.footer .text-center {
+    color: white;
+    font-size: 1.2rem; /* Tamaño de fuente inicial */
+}
+
+/* Estilos para texto alineado a la derecha */
+.footer .text-end {
+    color: white;
+    font-size: 1.2rem; /* Tamaño de fuente inicial */
+
+}
+
+.footer .text-end .parrafo {
+    margin-right: 20px; /* Añadir margen derecho al div con clase 'parrafo' */
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .footer .text-center,
+    .footer .text-end {
+        font-size: 1rem; /* Ajuste del tamaño de fuente para pantallas más pequeñas */
+    }
+}

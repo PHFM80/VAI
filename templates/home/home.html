@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Vai Process {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/home/home-quienes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home-portada.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Iniciar Sesión" button_url="login" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+
+    <div class="portada" id="portada" >
+        <div class="text">
+            <h2 >VAI PROCESS</h2>
+            <h4>Ingeniería, insumos y construcción de equipos para tratamiento de aguas y control de olores.</h4>
+        </div>
+        <div class="photo">
+            <div class="collage">
+                <img src="{% static 'images/collage6.webp' %}" alt="Foto 1" class="collage-photo photo1">
+                <img src="{% static 'images/collage2.webp' %}" alt="Foto 2" class="collage-photo photo2">
+                <img src="{% static 'images/collage1.webp' %}" alt="Foto 3" class="collage-photo photo3">
+                <img src="{% static 'images/collage3.webp' %}" alt="Foto 3" class="collage-photo photo4">
+                <img src="{% static 'images/collage4.webp' %}" alt="Foto 3" class="collage-photo photo5">
+                <img src="{% static 'images/collage5.webp' %}" alt="Foto 3" class="collage-photo photo6">
+            </div>
+        </div>
+    </div>
+
+    <!--Seccion disponible-->
+    <div class="xxx-section" id="xxx">
+
+    </div>
+
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}
+
+
+{% block extra_scripts %}
+    <script src="{% static 'js/home/estrellas.js' %}"></script>
+{% endblock %}

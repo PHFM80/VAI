@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/home/boton-header.css' %}">
+
+<div class="contenedor">
+    <div class="titulo">
+        <p>Acceso clientes</p>
+    </div>
+    <div class="boton">
+        <a href="{% if button_url %}{% url button_url %}{% else %}#{% endif %}" class="btn btn-custom" role="button">
+            {% if button_text %}{{ button_text }}{% else %}Iniciar Sesión{% endif %}
+        </a>        
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Vai Process {% endblock %}
+
+{% block extra_styles %}
+<!-- Espacio para estilos específicos de cada página -->
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Inicio" button_url="home" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div >
+            <h1>login</h1>
+  </div>
+
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer_izquierda %}
+    {% include 'home/lista-secciones.html' %}
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/home/listasecciones.css' %}">
+
+<ul class="nav-list">
+    <li class="{% if active_page == 'home' %}active{% endif %}"><a href="{% url 'home' %}">Inicio</a></li>
+    <li class="{% if active_page == 'acerca' %}active{% endif %}"><a href="{% url 'acerca' %}">Quienes Somos</a></li>
+    <li class="{% if active_page == 'servicios' %}active{% endif %}"><a href="{% url 'servicios' %}">Servicios</a></li>
+    <li class="{% if active_page == 'catalogos' %}active{% endif %}"><a href="{% url 'catalogos' %}">Catálogos</a></li>
+    <li class="{% if active_page == 'contacto' %}active{% endif %}"><a href="{% url 'contacto' %}">Contacto</a></li>
+</ul>
+
+
+
