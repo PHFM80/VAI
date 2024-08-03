@@ -3,12 +3,21 @@
 <link rel="stylesheet" href="{% static 'css/home/boton-header.css' %}">
 
 <div class="contenedor">
+    {% if not is_dashboard %}
     <div class="titulo">
         <p>Acceso clientes</p>
     </div>
+    {% endif %}
     <div class="boton">
+        {% if is_dashboard %}
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-custom">Cerrar sesión</button>
+        </form>
+        {% else %}
         <a href="{% if button_url %}{% url button_url %}{% else %}#{% endif %}" class="btn btn-custom" role="button">
             {% if button_text %}{{ button_text }}{% else %}Iniciar Sesión{% endif %}
-        </a>        
+        </a>
+        {% endif %}
     </div>
 </div>

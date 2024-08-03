@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 def login_view(request):
     if request.method == 'POST':
-        form = LoginForm (request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
@@ -16,22 +16,22 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect ('dashboard')
+                    return redirect('dashboard')
                 else:
-                    return HttpResponse("Tu cuenta no esta habilitada.")
+                    form.add_error(None, "Tu cuenta no está habilitada.")
             else:
-                return HttpResponse("La informacion ingresada no es correcta.")
+                form.add_error(None, "La información ingresada no es correcta.")
     else:
         form = LoginForm()
-        return render(request, 'registration/login.html', {'form': form})
+    return render(request, 'registration/login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
     return redirect ('home')
 
-@login_required()
+@login_required
 def dashboard_view(request):
-    return render (request, 'usuarios/dashboard.html')
+    return render(request, 'usuarios/dashboard.html', {'is_dashboard': True})
 
 def register_view(request):
     pass
