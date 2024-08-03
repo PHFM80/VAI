@@ -9,8 +9,7 @@
     padding: 0px 75px 30px 200px; /* Top Right Bottom Left */
     overflow: hidden; /* Para ocultar las estrellas que se salen del contenedor */
     position: relative; /* Asegura que las estrellas se posicionen correctamente */
-    background-image: url(/static/images/4.webp);
-    /* background-image: url(/static/images/azul-degrade.webp); */
+    background-image: url(/static/images/home/4.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

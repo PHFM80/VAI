@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %} Dashboard {% endblock %}
+
+{% block central %} <h3>Bienvenido al Dashboard</h3> {% endblock %}
+
+{% block derecho %}  
+<!-- En tu plantilla donde quieres que aparezca el botón de cierre de sesión -->
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+</form>
+
+{% endblock %}
+
+<div class="columns">
+{% block contenido %}  
+<h2>Bienvenido al dashboard {{ request.user.username }}</h2>
+<aside> <h3>este es el aside del dashboard</h3> </aside>
+<main> <h3>este es el main del dashboard </h3> </main>
+{% endblock %}
+</div>
