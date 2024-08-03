@@ -10,14 +10,14 @@
 <!-- Header -->
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-    {% include 'home/listasecciones.html' %}
+    {% include 'home/lista-secciones.html' %}
 {% endblock %}
 
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
 {% block header_derecha %}
     {% with button_text="Volver al Inicio" button_url="home" %}
-        {% include 'home/botonheader.html' %}
+        {% include 'home/boton-header.html' %}
     {% endwith %}
 {% endblock %}
 
@@ -32,6 +32,6 @@
 
 <!-- Footer -->
 {% block footer_izquierda %}
-    {% include 'home/listasecciones.html' %}
+    {% include 'home/lista-secciones.html' %}
 {% endblock %}
 

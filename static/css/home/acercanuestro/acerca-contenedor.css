@@ -9,7 +9,6 @@
 
 }
 
-
 .acerca-contenedor::before {
     content: "";
     position: absolute;
@@ -60,10 +59,12 @@
 .acerca-container .text h2 {
     font-size: calc(1.5rem + 1vw); /* Tamaño ajustable según el ancho de la pantalla */
     margin-bottom: 15px; /* Espacio inferior entre el subtítulo y el párrafo */
+    color: white;
 }
 
 .acerca-container .text p {
     font-size: calc(1rem + 0.5vw); /* Tamaño ajustable según el ancho de la pantalla */
+    color: white;
 }
 
 .content {

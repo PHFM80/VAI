@@ -10,12 +10,12 @@
 }
 
 .nav-list li {
-    margin: 15px; /* Margen horizontal entre los elementos */
+    margin: 5px; /* Margen horizontal entre los elementos */
 }
 
 .nav-list a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 10px 15px;
     font-size: 1.4rem; /* Ajusta el tamaño de la fuente según sea necesario */
     transition: color 0.3s ease; /* Añade una transición suave */
@@ -51,6 +51,6 @@
     }
     
     .nav-list a {
-        font-size: 1rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        font-size: 0.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
     }
 }

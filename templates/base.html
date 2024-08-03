@@ -57,14 +57,14 @@
                 <div class="footer-container">
                     <div class="row">
                         <!-- Sección 1: Bloque Izquierdo -->
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             {% block footer_izquierda %}
                             <!-- Espacio para accesos -->
                             {% endblock %}
                         </div>
 
                         <!-- Sección 2: Bloque Central -->
-                        <div class="col-md-5 d-flex flex-column justify-content-end text-center">
+                        <div class="col-md-4 d-flex flex-column justify-content-end text-center">
                             <p>D&T - Desarrollo y Tecnología</p>         
                             <p>Desarrollado por Pablo Flores</p>
                         </div>
@@ -72,8 +72,10 @@
                         <!-- Sección 3: Bloque Derecho -->
                         <div class="col-md-4 text-end">
                             <!-- Datos de la empresa -->
-                            Ingeniería, Construcción, Equipos e Insumos para tratamiento de Aguas. <br>
-                            Vaiprocess todos los derechos reservados | 2024
+                             <div class="parrafo">
+                                <p>Ingeniería, insumos y construccion de equipos <br>para tratamientos de agua <br> y control de olores.</p>
+                                <p>Vai Process SpA&reg; todos los derechos reservados | 2024</p>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -88,3 +90,4 @@
     {% endblock %}
 </body>
 </html>
+

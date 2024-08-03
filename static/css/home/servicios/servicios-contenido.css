@@ -22,7 +22,6 @@
     z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido */
 }
 
-
 .servicios-contenido {
     position: relative;
     z-index: 1; /* Asegura que el contenido esté por delante de la imagen */

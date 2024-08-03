@@ -12,14 +12,14 @@
 <!-- Header -->
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-  {% include 'home/listasecciones.html' %}
+  {% include 'home/lista-secciones.html' %}
 {% endblock %}
 
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
 {% block header_derecha %}
     {% with button_text="Iniciar Sesión" button_url="login" %}
-        {% include 'home/botonheader.html' %}
+        {% include 'home/boton-header.html' %}
     {% endwith %}
 {% endblock %}
 
@@ -51,16 +51,12 @@
                 </div>
 
                 <!-- Contenedor 2 -->
-                <div class="col-md-6 col-lg-3 mb-4">
+                <!-- <div class="col-md-6 col-lg-3 mb-4">
                     <div class="catalogo">
-                        <div class="imagen-catalogo">
-                            <img src="{% static 'images/catalogo-gratt.webp' %}" class="img-fluid" alt="Catálogo 2">
-                        </div>
-                        <div class="link-descarga mt-2">
-                            <a href="{% static 'files/CATALOGO-EQUIPAMENTOS-GRATT-2019-ESPANHOL-2.pdf' %}" class="btn btn-primary" download>Descargar Catalogo</a>
+                        
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Contenedor 3 -->
                 <div class="col-md-6 col-lg-3 mb-4">
@@ -95,5 +91,5 @@
 
 <!-- Footer -->
 {% block footer_izquierda %}
-    {% include 'home/listasecciones.html' %}
+    {% include 'home/lista-secciones.html' %}
 {% endblock %}

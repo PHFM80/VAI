@@ -35,24 +35,50 @@
    
 }
 
-.contacto-formulario button {
-    background-color: #007bff; /* Fondo del botón en azul (ajusta según sea necesario) */
-    border: none; /* Elimina el borde predeterminado */
-    color: white; /* Color del texto del botón en blanco */
-    padding: 0.5em 1em; /* Espacio interno del botón */
-    font-size: 1em; /* Tamaño de la fuente del botón */
-    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+input[type="submit"] {
+    background-color: rgba(255, 255, 255, 0.1); /* Color de fondo inicial (azul) */
+    color: #fff; /* Color del texto */
+    border: none; /* Elimina el borde por defecto */
+    padding: 0.5em 1em; /* Espaciado interno del botón */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 4px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
-.contacto-formulario button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el cursor (ajusta según sea necesario) */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Color de fondo cuando el ratón está sobre el botón */
 }
 
-.contacto-formulario button {
-    margin-top: 1vh; /* Espacio superior, ajusta según sea necesario */
+.contacto-formulario p {
+    text-align: center; /* Centra el contenido dentro de estos contenedores */
+    margin: 0;
+    padding: 0.5em 0;
+    color: white; /* Color del texto */
+    font-size: 1rem; /* Tamaño de fuente por defecto */
 }
 
-.contacto-formulario button {
-    margin-top: 1vh; /* Espacio superior, ajusta según sea necesario */
-    padding: 1vh 2vw; /* Ajusta el padding del botón si es necesario */
+.contacto-formulario p:first-of-type {
+    font-weight: bold;
+    font-size: 1.2rem; /* Tamaño de fuente para el primer párrafo */
+}
+
+@media (max-width: 768px) {
+    .contacto-formulario p {
+        font-size: 0.9rem; /* Tamaño de fuente para pantallas pequeñas */
+    }
+
+    .contacto-formulario p:first-of-type {
+        font-size: 1.1rem; /* Tamaño de fuente para el primer párrafo en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-formulario p {
+        font-size: 0.8rem; /* Tamaño de fuente para pantallas muy pequeñas */
+    }
+
+    .contacto-formulario p:first-of-type {
+        font-size: 1rem; /* Tamaño de fuente para el primer párrafo en pantallas muy pequeñas */
+    }
 }

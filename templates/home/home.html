@@ -11,14 +11,14 @@
 <!-- Header -->
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-    {% include 'home/listasecciones.html' %}
+    {% include 'home/lista-secciones.html' %}
 {% endblock %}
 
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
 {% block header_derecha %}
     {% with button_text="Iniciar Sesión" button_url="login" %}
-        {% include 'home/botonheader.html' %}
+        {% include 'home/boton-header.html' %}
     {% endwith %}
 {% endblock %}
 
@@ -27,8 +27,8 @@
 
     <div class="portada" id="portada" >
         <div class="text">
-            <h4 class="h4-1"><strong>VAI</strong></h4><h4 class="h4-2"><strong>PROCESS</strong></h4>
-            <h2>Ingeniería, insumos y construcción de equipos para tratamiento de aguas.</h2>
+            <h2 >VAI PROCESS</h2>
+            <h4>Ingeniería, insumos y construcción de equipos para tratamiento de aguas y control de olores.</h4>
         </div>
         <div class="photo">
             <div class="collage">
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!--Seccion acerca de nosotros / quienes somos-->
+    <!--Seccion disponible-->
     <div class="xxx-section" id="xxx">
 
     </div>
@@ -52,7 +52,7 @@
 
 <!-- Footer -->
 {% block footer_izquierda %}
-    {% include 'home/listasecciones.html' %}
+    {% include 'home/lista-secciones.html' %}
 {% endblock %}
 
 

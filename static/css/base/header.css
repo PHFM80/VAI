@@ -21,8 +21,26 @@ header {
 
 /* Ajuste del logo */
 .header-column img.logo-img {
-    width: 50%;
+    width: 80%;
     max-height: 100%;
 }
 
 
+/* Ajustes específicos para las secciones del header */
+#header-izq {
+    flex: 1 1 20%; /* Ajusta el ancho según sea necesario */
+}
+
+#header-cen {
+    flex: 1 1 60%; /* Ajusta el ancho según sea necesario */
+}
+
+#header-der {
+    flex: 1 1 20%; /* Ajusta el ancho según sea necesario */
+}
+
+/* Asegúrate de que el contenedor principal use flexbox para aplicar los anchos */
+.container-fluid {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre secciones */
+}
