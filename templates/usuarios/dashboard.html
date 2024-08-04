@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} Acceso usuarios - VaiP {% endblock %}
+{% block title %} Acceso usuarios - VaiProcess {% endblock %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/usuarios/registration-login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/aside-dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/principal-dashboard.css' %}">
 {% endblock %}
 
 <!-- Header -->
@@ -23,11 +25,102 @@
 
 <!-- Main Content -->
 {% block content %}
-<div class="columns">
+<div class="contenedor-dash">
+    <div class="header">
+        <h2>Bienvenido al dashboard {{ request.user.username }}</h2>
+    </div>
+    <div class="cuerpo">
+        <aside> 
+            <div class="titulo"><h3>este es el aside del dashboard</h3></div> 
+            <div class="listas">
+                <button class="boton cinco toggle-button">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM127 297c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71 71L232 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 214.1 71-71c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 409c-9.4 9.4-24.6 9.4-33.9 0L127 297z"/></svg>
+                        
+                    </div>
+                    <span><strong>Módulo Usuarios</strong></span>
+                </button>
+                <ul class="toggle-content">
+                    <li>Cargar usuario</li>
+                    <li>Modificar usuario</li>
+                    <li>Eliminar usuario</li>
+                    <li>Habilitar / Deshabilitar usuario</li>
+                </ul>
+                <button class="boton cinco toggle-button">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM127 297c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71 71L232 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 214.1 71-71c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 409c-9.4 9.4-24.6 9.4-33.9 0L127 297z"/></svg>
+                        
+                    </div>
+                    <span><strong>Módulo Plantas</strong></span>
+                </button>
+                <ul class="toggle-content">
+                    <li>Ver Planta</li>
+                    <li>Agregar planta</li>
+                    <li>Eliminar planta</li>
+                </ul>
+                <button class="boton cinco toggle-button">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM127 297c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71 71L232 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 214.1 71-71c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 409c-9.4 9.4-24.6 9.4-33.9 0L127 297z"/></svg>
+                        
+                    </div>
+                    <span><strong>Módulo Estaciones</strong></span>
+                </button>
+                <ul class="toggle-content">
+                    <li>Ver estación</li>
+                    <li>Agregar estación</li>
+                    <li>Eliminar estación</li>
+                    <li>Vincular estación a planta</li>
+                    <li>Desvincular estación de planta</li>
+                    <li>Remplazar estación</li>
+                </ul>
+                <button class="boton cinco toggle-button">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM127 297c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71 71L232 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 214.1 71-71c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 409c-9.4 9.4-24.6 9.4-33.9 0L127 297z"/></svg>
+                        
+                    </div>
+                    <span><strong>Módulo Sensores</strong></span>
+                </button>
+                <ul class="toggle-content">
+                    <li>Agregar sensor</li>
+                    <li>Eliminar sensor</li>
+                    <li>Vincular sensor a planta</li>
+                    <li>Desvincular sensor de planta</li>
+                    <li>Remplazar sensor</li>
+                    <li>Ver sensor</li>
+                    <li>Descargar datos de sensor</li>
+                    <li>Fijar parámetro máximo de sensor</li>
+                    <li>Fijar parámetro mínimo de sensor</li>
+                </ul>
+                <button class="boton cinco toggle-button">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM127 297c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71 71L232 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 214.1 71-71c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 409c-9.4 9.4-24.6 9.4-33.9 0L127 297z"/></svg>
+                        
+                    </div>
+                    <span><strong>Módulo Actuadores</strong></span>
+                </button>
+                <ul class="toggle-content">
+                    <li>Agregar actuador</li>
+                    <li>Eliminar actuador</li>
+                    <li>Vincular actuador a estación</li>
+                    <li>Desvincular actuador de estación</li>
+                    <li>Remplazar actuador</li>
+                    <li>Ver actuador</li>
+                    <li>Accionar actuador</li>
+                </ul>
+            </div>
+            
+        </aside>
+        <section class="principal"> 
+            <div class="titulo">
+                <h3>este es el main del dashboard </h3> 
+            </div>
+            <div class="contenido">
+                <h3>este es el main del dashboard </h3> 
+                <h3>este es el main del dashboard </h3> 
+            </div>
+        </section>
+    </div>
 
-    <h2>Bienvenido al dashboard {{ request.user.username }}</h2>
-    <aside> <h3>este es el aside del dashboard</h3> </aside>
-    <main> <h3>este es el main del dashboard </h3> </main>
 
 </div>
 
@@ -39,4 +132,8 @@
 <!-- Footer -->
 {% block footer_izquierda %}
 
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'js/dashboard/aside-dashboard.js' %}"></script>
 {% endblock %}
