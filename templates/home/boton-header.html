@@ -15,9 +15,13 @@
             <button type="submit" class="btn btn-custom">Cerrar sesión</button>
         </form>
         {% else %}
-        <a href="{% if button_url %}{% url button_url %}{% else %}#{% endif %}" class="btn btn-custom" role="button">
+        <button class="btn-custom boton-seis" onclick="location.href='{% if button_url %}{% url button_url %}{% else %}#{% endif %}'">
             {% if button_text %}{{ button_text }}{% else %}Iniciar Sesión{% endif %}
-        </a>
+            <svg>
+                <rect x="0" y="0" fill="none"></rect>
+            </svg>
+        </button>
         {% endif %}
     </div>
 </div>
+

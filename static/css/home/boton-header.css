@@ -1,4 +1,4 @@
-/* Asegura que el contenedor ocupe todo el ancho posible */
+/*ocupe todo el ancho posible */
 .contenedor {
     width: 100%;
     text-align: center; /* Centra el contenido horizontalmente */
@@ -8,33 +8,91 @@
 /* Estilos para el título */
 .contenedor .titulo p {
     color: white;
-    font-size: 1.5rem; /* Tamaño de fuente mayor */
-    margin-bottom: 20px; /* Añade un margen inferior para separar el título del botón */
+    font-size: 1.2rem; /* Tamaño de fuente mayor */
+    margin-bottom: 10px; /* Añade un margen inferior para separar el título del botón */
 }
 
-/* Personalización del botón */
-.btn-custom {
+/* Estilos para el botón con el estilo seis integrado */
+.btn-custom.boton-seis {
+    background: none; /* Fondo transparente inicialmente */
     color: white;
-    border: 2px solid white;
+    border: 1px solid transparent; /* Sin contorno inicialmente */
     padding: 10px 20px;
-    font-size: 1rem; /* Tamaño más grande */
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex; /* Asegura que el botón tenga el tamaño del contenido */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centra el texto dentro del botón */
+    border-radius: 4px; /* Opcional: Añade bordes redondeados */
 }
 
-.btn-custom:hover {
-    background-color: black;
-    color: white;
-    border: 2px solid white;
+/* Estilos para el SVG y el rectángulo */
+.btn-custom.boton-seis svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: none;
+
 }
+
+.btn-custom.boton-seis rect {
+    width: 100%;
+    height: 100%;
+    stroke: #234167;
+    stroke-width: 10px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 2s ease;
+    
+}
+
+/* Estado hover para el botón */
+.btn-custom.boton-seis:hover {
+    color: white; /* Cambia el color del texto a blanco al pasar el ratón */
+}
+
+.btn-custom.boton-seis:hover rect {
+    stroke-dashoffset: 0; /* Dibuja la línea alrededor al pasar el ratón */
+}
+
+/* Añade el rectángulo antes de la transición del fondo */
+.btn-custom.boton-seis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.2s ease 0.5s; /* Retraso para la transición de opacidad */
+    z-index: 0;
+    color: white; /* Cambia el color del texto a blanco al pasar el ratón */
+}
+
+/* Mostrar el rectángulo al pasar el ratón */
+.btn-custom.boton-seis:hover::before {
+    opacity: 1; 
+}
+
 
 /* Responsividad */
 @media (max-width: 768px) {
     .contenedor .titulo p {
-        font-size: 1rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+        font-size: 1rem;
     }
 
-    .btn-custom {
-        font-size: 0.5rem; /* Ajusta el tamaño del botón para pantallas más pequeñas */
-        padding: 8px 16px; /* Ajusta el relleno del botón para pantallas más pequeñas */
+    .btn-custom.boton-seis {
+        font-size: 0.5rem;
+        padding: 8px 16px;
     }
 }
+
+
+
+
+
