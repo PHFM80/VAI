@@ -1,0 +1,93 @@
+/* Estilos para el aside */
+aside {
+    width: 30%;
+    background-color: yellow; /* Fondo amarillo para el aside */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    padding: 10px; /* Añade padding para separar el contenido del borde */
+    border-radius: 15px;
+
+}
+
+.titulo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.listas {
+    width: 100%;
+}
+
+
+.listas ul {
+    padding-left: 20px;
+    list-style-type: disc; /* Muestra bullets por defecto */
+}
+
+.listas li {
+    margin-bottom: 5px;
+}
+.toggle-content {
+    display: none; /* Oculta las listas por defecto */
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.toggle-button {
+    width: 100%; /* Botón ocupa todo el ancho */
+    height: 40px;
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    margin-bottom: 10px;
+    background-color: #f0f0f0; /* Fondo para los botones */
+    padding: 10px 20px; /* Padding adecuado para mayor tamaño */
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Borde del botón */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative; /* Necesario para la animación */
+    overflow: hidden; /* Oculta elementos fuera del contenedor */
+}
+
+.toggle-button .icono {
+    width: 30px; /* Ajusta el ancho del icono */
+    height: 30px; /* Ajusta la altura del icono */
+}
+
+.boton.cinco span {
+    transition: .4s ease-in-out all;
+    position: absolute;
+    left: 40%;
+}
+
+.boton.cinco .icono {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    left: -40px;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+}
+
+.boton.cinco svg {
+    color: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+.boton.cinco:hover {
+    background: #2f9b05;
+}
+
+.boton.cinco:hover .icono {
+    left: calc(100% - 50px);
+    opacity: 1;
+}
+
+.boton.cinco:hover span {
+    left: 20px;
+}
+

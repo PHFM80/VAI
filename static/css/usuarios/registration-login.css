@@ -1,0 +1,73 @@
+/* Asegura que el contenido ocupe el 100% del ancho y alto */
+.content {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/static/images/usuarios/fondo-login.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el contenedor del formulario */
+.container {
+    width: 70vh;
+    height: auto; /* Ajusta según sea necesario */
+    border: 2px solid #000; /* Color del borde negro */
+    padding: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7); /* Añade una sombra para darle profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* Estilos para el título */
+.titulo h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+.login-form {
+    width: 100%; /* Asegura que el formulario ocupe todo el ancho del contenedor */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espacio entre los campos del formulario */
+    width: 100%; /* Asegura que el grupo de formulario ocupe todo el ancho disponible */
+}
+
+.form-group label {
+    display: block; /* Asegura que la etiqueta esté en su propia línea */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+}
+
+.form-group input {
+    width: 100%; /* Asegura que el campo ocupe todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno para el campo */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados para los campos */
+}
+
+/* Estilos para el botón de envío */
+.button {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    padding: 10px; /* Espacio interno para el botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    background-color: rgba(72, 89, 167, 0.7);; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    font-size: 16px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+/* Estilos para el hover del botón */
+.button:hover {
+    background-color: rgba(17, 43, 159, 0.93); /* Color de fondo cuando se pasa el ratón por encima */
+}
+
+

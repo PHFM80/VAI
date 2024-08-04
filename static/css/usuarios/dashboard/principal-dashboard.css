@@ -1,0 +1,9 @@
+
+.principal {
+    width: 70%;
+    background-color: rgb(255, 255, 255); /* Fondo blanco para la sección principal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
