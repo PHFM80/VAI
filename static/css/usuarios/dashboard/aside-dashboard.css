@@ -56,6 +56,56 @@ aside {
     height: 30px; /* Ajusta la altura del icono */
 }
 
+.size-6 {
+    width: 24px;
+    height: 24px;
+    stroke: black;
+}
+
+/* Icono del menú por defecto */
+.icono svg {
+
+    stroke: black;
+}
+
+/* Icono cuando el menú está desplegado */
+.icono.open svg {
+
+    stroke: black;
+}
+
+/* Oculta el icono desplegado por defecto */
+.icono svg.up-arrow {
+    display: none;
+}
+
+/* Muestra el icono desplegado cuando el menú está abierto */
+.toggle-button.open .icono svg.up-arrow {
+    display: inline;
+}
+
+.icono svg.default {
+    display: inline;
+}
+
+.toggle-button.open .icono svg.default {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .boton.cinco span {
     transition: .4s ease-in-out all;
     position: absolute;

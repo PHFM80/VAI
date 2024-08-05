@@ -1,9 +1,18 @@
-
 .principal {
     width: 70%;
     background-color: rgb(255, 255, 255); /* Fondo blanco para la sección principal */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Apila los hijos en columna */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    padding: 20px; /* Opcional: Agrega un poco de espacio interno */
+}
+
+.titulo {
+    width: 100%; /* Asegura que el título ocupe todo el ancho disponible */
+}
+
+.contenido {
+    width: 100%; /* Asegura que el contenido ocupe todo el ancho disponible */
+    margin-top: 10px; /* Espacio entre el título y el contenido */
 }
