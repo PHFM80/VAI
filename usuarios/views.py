@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RegistroUsuarioForm
 from .models import UsuarioVai
+from django.urls import reverse
 
 # Create your views here.
 
@@ -64,7 +65,7 @@ def registro_usuario_view(request):
             user.save()
 
             messages.success(request, 'Usuario registrado exitosamente.')
-            return redirect('dashboard')
+            return redirect(reverse('ultimo_usuario'))
         else:
             messages.error(request, 'Por favor corrige los errores a continuación.')
     else:
@@ -72,4 +73,14 @@ def registro_usuario_view(request):
 
     return render(request, 'usuarios/registro-usuario.html', {'form': form})
 
+@login_required
+def ultimo_usuario_view(request):
+    # Obtiene el último usuario registrado
+    ultimo_usuario = UsuarioVai.objects.order_by('-id').first()
+    
+    # Verifica si hay usuarios en la base de datos
+    if not ultimo_usuario:
+        return render(request, 'usuarios/ultimo-usuario.html', {'mensaje': 'No hay usuarios registrados.'})
+    
+    return render(request, 'usuarios/ultimo-usuario.html', {'usuario': ultimo_usuario})
 
