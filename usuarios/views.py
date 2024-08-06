@@ -2,7 +2,9 @@ from django.shortcuts import redirect, render
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.contrib import messages
+from .forms import RegistroUsuarioForm
+from .models import UsuarioVai
 
 # Create your views here.
 
@@ -33,5 +35,41 @@ def logout_view(request):
 def dashboard_view(request):
     return render(request, 'usuarios/dashboard.html', {'is_dashboard': True})
 
-def register_view(request):
-    pass
+@login_required
+def registro_usuario_view(request):
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        if form.is_valid():
+            # Extraer datos del formulario
+            cleaned_data = form.cleaned_data
+            rol = cleaned_data.get('rol')
+            cargo = cleaned_data.get('cargo')
+
+            # Generar el username
+            last_user = UsuarioVai.objects.all().order_by('id').last()
+            new_id = last_user.id + 1 if last_user else 1
+            username = f"{rol.codigo}{new_id}{cargo.codigo}"
+
+            # Crear el usuario y guardar
+            user = UsuarioVai(
+                first_name=cleaned_data.get('first_name'),
+                last_name=cleaned_data.get('last_name'),
+                email=cleaned_data.get('email'),
+                telefono=cleaned_data.get('telefono'),
+                rol=rol,
+                cargo=cargo,
+                username=username
+            )
+            user.set_password('vaiprocess2024')  # Establecer la contraseña por defecto
+            user.save()
+
+            messages.success(request, 'Usuario registrado exitosamente.')
+            return redirect('dashboard')
+        else:
+            messages.error(request, 'Por favor corrige los errores a continuación.')
+    else:
+        form = RegistroUsuarioForm()
+
+    return render(request, 'usuarios/registro-usuario.html', {'form': form})
+
+

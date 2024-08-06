@@ -46,12 +46,12 @@
                     </div>
                     <span><strong>Módulo Usuarios</strong></span>
                 </button>
-                <ul class="toggle-content">
-                    <li>Cargar usuario</li>
-                    <li>Modificar usuario</li>
-                    <li>Eliminar usuario</li>
-                    <li>Habilitar / Deshabilitar usuario</li>
-                </ul>
+                    <ul>
+                        <li><a href="{% url 'registro-usuario' %}" >Cargar usuario</a></li>
+                        <li><a href="#" class="load-content">Modificar usuario</a></li>
+                        <li><a href="#" class="load-content">Eliminar usuario</a></li>
+                        <li><a href="#" class="load-content">Habilitar / Deshabilitar usuario</a></li>
+                    </ul>
                 <button class="boton cinco toggle-button">
                     <div class="icono">
                         <!-- flecha hacia abajo -->
@@ -141,19 +141,11 @@
             
         </aside>
 
-        <section class="principal"> 
-            <div class="titulo">
-                <h3>Entorno de trabajo del Dashboard</h3> 
+        <section class="principal" > 
+            <div id="main-content">
+                <!-- Aquí se cargará el contenido -->
             </div>
-            <div class="contenido">
-                <h3>este es el main 1  del dashboard </h3> 
-            </div>
-            <div class="contenido">
-                <h3>este es el main 1 del dashboard </h3> 
-            </div>
-            <div class="contenido">
-                <h3>este es el main 3 del dashboard </h3> 
-            </div>
+
         </section>
     </div>
 
@@ -172,6 +164,7 @@
 
 {% block extra_scripts %}
     <script src="{% static 'js/dashboard/aside-dashboard.js' %}"></script>
+    <script src="{% static 'js/dashboard/principal-dashboard.js' %}"></script>
 {% endblock %}
 
 
