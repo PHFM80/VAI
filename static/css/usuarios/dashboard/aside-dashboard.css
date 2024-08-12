@@ -1,6 +1,6 @@
 /* Estilos para el aside */
 aside {
-    width: 30%;
+    width: 17%;
     background-color: yellow; /* Fondo amarillo para el aside */
     display: flex;
     flex-direction: column;
@@ -17,13 +17,19 @@ aside {
 }
 
 .listas {
-    width: 100%;
+    width: 90%;
 }
 
 
 .listas ul {
     padding-left: 20px;
     list-style-type: disc; /* Muestra bullets por defecto */
+}
+
+.titulo-ul {
+    display: block;
+    text-align: left;
+    width: 50%;
 }
 
 .listas li {
