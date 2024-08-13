@@ -1,0 +1,93 @@
+/* Estilos para la tabla de usuarios */
+.datos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.datos th, .datos td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.datos th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.datos tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.datos tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Controlar el ancho de cada columna */
+.datos th:nth-child(1),
+.datos td:nth-child(1) {
+    width: 15%; /* Ancho para Username */
+}
+
+.datos th:nth-child(2),
+.datos td:nth-child(2) {
+    width: 10%; /* Ancho para Nombres */
+}
+
+.datos th:nth-child(3),
+.datos td:nth-child(3) {
+    width: 10%; /* Ancho para Apellidos */
+}
+
+.datos th:nth-child(4),
+.datos td:nth-child(4) {
+    width: 20%; /* Ancho para Email */
+}
+
+.datos th:nth-child(5),
+.datos td:nth-child(5) {
+    width: 10%; /* Ancho para Teléfono */
+}
+
+.datos th:nth-child(6),
+.datos td:nth-child(6) {
+    width: 10%; /* Ancho para Cargo */
+}
+
+.datos th:nth-child(7),
+.datos td:nth-child(7) {
+    width: 10%; /* Ancho para Habilitado */
+}
+
+.datos th:nth-child(8),
+.datos td:nth-child(8) {
+    width: 10%; /* Ancho para Planta */
+}
+
+.datos th:nth-child(9),
+.datos td:nth-child(9) {
+    width: 10%; /* Ancho para Fecha de Registro */
+}
+
+.datos th:nth-child(10),
+.datos td:nth-child(10) {
+    width: 15%; /* Ancho para Última Fecha de Ingreso */
+}
+
+/* Estilos para el botón de imprimir/descargar */
+.btn-download {
+    width: 20%;
+    padding: 10px;
+    background-color: #d4edda; /* Verde claro */
+    border: none;
+    border-radius: 4px;
+    color: #155724; /* Color del texto */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #c3e6cb; /* Verde oscuro */
+}

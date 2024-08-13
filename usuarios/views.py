@@ -1,13 +1,13 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import LoginForm
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import RegistroUsuarioForm
+from .forms import RegistroUsuarioForm, BuscarUsuarioForm
 from .models import UsuarioVai
 from django.urls import reverse
 
-# Create your views here.
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -71,7 +71,7 @@ def registro_usuario_view(request):
     else:
         form = RegistroUsuarioForm()
 
-    return render(request, 'usuarios/registro-usuario.html', {'form': form})
+    return render(request, 'usuarios/registro-usuario.html', {'form': form, 'isin_dashboard': True})
 
 @login_required
 def ultimo_usuario_view(request):
@@ -82,5 +82,122 @@ def ultimo_usuario_view(request):
     if not ultimo_usuario:
         return render(request, 'usuarios/ultimo-usuario.html', {'mensaje': 'No hay usuarios registrados.'})
     
-    return render(request, 'usuarios/ultimo-usuario.html', {'usuario': ultimo_usuario})
+    return render(request, 'usuarios/ultimo-usuario.html', {'usuario': ultimo_usuario, 'isin_dashboard': True})
+
+@login_required
+def modificar_usuario_view(request):
+    usuario = None
+    form_buscar = BuscarUsuarioForm()
+
+    if request.method == 'POST' and 'buscar_usuario' in request.POST:
+        # Buscar el usuario
+        form_buscar = BuscarUsuarioForm(request.POST)
+        if form_buscar.is_valid():
+            username = form_buscar.cleaned_data['username']
+            usuario = get_object_or_404(UsuarioVai, username=username)
+
+    if request.method == 'POST' and 'modificar_usuario' in request.POST:
+        # Modificar el usuario
+        usuario = get_object_or_404(UsuarioVai, username=request.POST.get('username'))
+        form_modificar = RegistroUsuarioForm(request.POST, instance=usuario)
+        if form_modificar.is_valid():
+            # Extraer rol y cargo del formulario
+            cleaned_data = form_modificar.cleaned_data
+            rol = cleaned_data.get('rol')
+            cargo = cleaned_data.get('cargo')
+
+
+            nuevo_username = f"{rol.codigo}{usuario.id}{cargo.codigo}"
+            usuario.username = nuevo_username
+
+            # Guardar el usuario con las modificaciones
+            form_modificar.save()
+            messages.success(request, 'Usuario modificado exitosamente.')
+            return redirect('dashboard')
+    else:
+        if usuario:
+            form_modificar = RegistroUsuarioForm(instance=usuario)
+        else:
+            form_modificar = None
+
+    return render(request, 'usuarios/modificar-usuario.html', {
+        'form_buscar': form_buscar,
+        'form_modificar': form_modificar,
+        'usuario': usuario,
+        'isin_dashboard': True
+    })
+
+@login_required
+def modificar_habilitacion_view(request):
+    usuario = None
+    form_buscar = BuscarUsuarioForm()
+    
+    if request.method == 'POST':
+        if 'buscar_usuario' in request.POST:
+            # Buscar el usuario
+            form_buscar = BuscarUsuarioForm(request.POST)
+            if form_buscar.is_valid():
+                username = form_buscar.cleaned_data['username']
+                usuario = get_object_or_404(UsuarioVai, username=username)
+        
+        if 'guardar_cambio' in request.POST:
+            # Modificar la habilitación del usuario
+            username = request.POST.get('username')
+            usuario = get_object_or_404(UsuarioVai, username=username)
+            is_active = request.POST.get('is_active') == '1'
+            usuario.is_active = is_active
+            usuario.save()
+            messages.success(request, 'Estado del usuario modificado exitosamente.')
+            return redirect('modificar_habilitacion')  # Redirige para actualizar el estado
+        
+    return render(request, 'usuarios/modificar-habilitacion.html', {
+        'form_buscar': form_buscar,
+        'usuario': usuario,
+        'isin_dashboard': True
+    })
+
+@login_required
+def cambiar_contrasena_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        current_password = request.POST.get('current_password')
+        new_password1 = request.POST.get('new_password1')
+        new_password2 = request.POST.get('new_password2')
+        
+        # Verificar que el nombre de usuario sea el correcto
+        if username != request.user.username:
+            messages.error(request, 'Nombre de usuario incorrecto.')
+            return render(request, 'cambiar_contrasena.html')
+        
+        # Verificar que la contraseña actual sea correcta
+        user = authenticate(username=request.user.username, password=current_password)
+        if user is None:
+            messages.error(request, 'La contraseña actual es incorrecta.')
+            return render(request, 'cambiar_contrasena.html')
+        
+        # Verificar que las nuevas contraseñas coincidan
+        if new_password1 != new_password2:
+            messages.error(request, 'Las nuevas contraseñas no coinciden.')
+            return render(request, 'cambiar_contrasena.html')
+        
+        # Guardar la nueva contraseña
+        user.set_password(new_password1)
+        user.save()
+        update_session_auth_hash(request, user)  # Mantener la sesión activa del usuario
+        
+        # Logout después de cambiar la contraseña
+        logout(request)
+        messages.success(request, 'Contraseña cambiada con éxito. Por favor, inicie sesión nuevamente.')
+        return redirect('login')  # Redirigir al inicio de sesión o a la página deseada
+    
+    else:
+        return render(request, 'usuarios/cambiar-contrasena.html', {'isin_dashboard': True})
+
+@login_required
+def buscar_usuario_view(request):
+
+    return render(request, 'usuarios/buscar-usuarios.html', {'isin_dashboard': True})
+
+
+
 

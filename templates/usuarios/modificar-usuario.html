@@ -1,0 +1,70 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Modificar Usuario - VaiP {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/usuarios/modificar-usuario.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container">
+        <!-- Formulario para ingresar el username -->
+        <div class="ingreso">
+            <h2>Buscar Usuario</h2>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form_buscar.as_p }}
+                <button type="submit" name="buscar_usuario">Buscar</button>
+            </form>
+        </div>
+
+        {% if usuario %}
+        <div class="datos">
+            <div class="originales">
+                <h2>Datos Actuales del Usuario</h2>
+                <p><strong>Nombre:</strong> {{ usuario.first_name }}</p>
+                <p><strong>Apellido:</strong> {{ usuario.last_name }}</p>
+                <p><strong>Email:</strong> {{ usuario.email }}</p>
+                <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+                <p><strong>Cargo:</strong> {{ usuario.cargo }}</p>
+                <p><strong>Nombre de Usuario:</strong> {{ usuario.username }}</p>
+            </div>
+
+            <!-- Formulario para modificar el usuario -->
+            <div class="modificados">
+                <h2>Modificar Usuario</h2>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {{ form_modificar.as_p }}
+                    <input type="hidden" name="username" value="{{ usuario.username }}">
+                    <button type="submit" name="modificar_usuario">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
+  
+

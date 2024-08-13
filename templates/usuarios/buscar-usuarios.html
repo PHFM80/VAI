@@ -1,0 +1,129 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Buscar Usuario - Vai-Map {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/usuarios/buscar-usuarios.css' %}">
+    <link rel="stylesheet" href="{% static 'css/usuarios/buscar-usuarios-lista.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container">
+        <h2>Búsqueda de usuarios</h2>
+        
+        <div class="ingreso">
+            <div class="row">
+                <h3>Seleccione tipo de búsqueda</h3>
+            </div>
+            
+            <div class="row">
+                <!-- Criterio 1: Usuarios activos -->
+                <div class="columna">
+                    <label>
+                        <input type="radio" name="criterio" value="activos"> Activos
+                    </label>
+                </div>
+                <!-- Criterio 2: Usuarios inactivos -->
+                <div class="columna">
+                    <label>
+                        <input type="radio" name="criterio" value="inactivos"> Inactivos
+                    </label>
+                </div>
+                <!-- Criterio 3: Usuarios por cargo -->
+                <div class="columna">
+                    <label>
+                        <input type="radio" name="criterio" value="cargo"> Por cargo:
+                    </label>
+                    <select id="cargo-select" name="cargo">
+                        <option value="" selected disabled>Seleccione un cargo</option>
+                        <!-- Los cargos de la base de datos se cargarán aquí -->
+                    </select>
+                </div>
+                <!-- Criterio 4: Usuarios por plantas -->
+                <div class="columna">
+                    <label>
+                        <input type="radio" name="criterio" value="planta"> Por planta:
+                    </label>
+                    <select id="planta-select" name="planta">
+                        <option value="" selected disabled>Seleccione una planta</option>
+                        <!-- Las plantas de la base de datos se cargarán aquí en el futuro -->
+                    </select>
+                </div>
+                <!-- Criterio 5: Usuarios por empresa -->
+                <div class="columna">
+                    <label>
+                        <input type="radio" name="criterio" value="empresa"> Por empresa:
+                    </label>
+                    <select id="empresa-select" name="empresa">
+                        <option value="" selected disabled>Seleccione una empresa</option>
+                        <!-- Las plantas de la base de datos se cargarán aquí en el futuro -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Botón de buscar -->
+                <div class="columna btn-container">
+                    <button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="datos">
+            <!-- Fila de la tabla de usuarios -->
+            <div class="row usuarios-row">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Cargo</th>
+                            <th>Habilitado</th>
+                            <th>Planta</th>
+                            <th>Fecha Registro</th>
+                            <th>Último Ingreso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se llenarán las filas de datos dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <!-- Fila con el botón de imprimir/descargar -->
+            <div class="row">
+                <div class="columna btn-container">
+                    <button type="button" class="btn btn-download">Imprimir/Descargar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+
+{% endblock %}
+  
+

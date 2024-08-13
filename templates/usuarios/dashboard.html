@@ -1,23 +1,21 @@
-{% extends "base.html" %} {% load static %} {% block title %} Acceso usuarios -
-VaiProcess {% endblock %} {% block extra_styles %}
-<link
-  rel="stylesheet"
-  href="{% static 'css/usuarios/dashboard/dashboard.css' %}"
-/>
-<link
-  rel="stylesheet"
-  href="{% static 'css/usuarios/dashboard/aside-dashboard.css' %}"
-/>
-<link
-  rel="stylesheet"
-  href="{% static 'css/usuarios/dashboard/principal-dashboard.css' %}"
-/>
+{% extends "base.html" %}
+
+{% load static %} 
+
+{% block title %} Vai-MAP - VaiProcess {% endblock %} 
+
+{% block extra_styles %}
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/dashboard.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/aside-dashboard.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/usuarios/dashboard/principal-dashboard.css' %}"/>
 {% endblock %}
 
 <!-- Header -->´
 <!-- Sección 2: Bloque Central -->
 {% block header_central %}
-<h2>Bienvenido al dashboard {{ request.user.username }}</h2>
+<h2><strong>Vai - Map</strong> (Monitoreo y analisis de plantas)</h2>
 {% endblock %}
 
 <!-- Sección 3: Botón de Inicio de Sesión -->
@@ -29,95 +27,104 @@ VaiProcess {% endblock %} {% block extra_styles %}
 
 <!-- Main Content -->
 {% block content %}
-<div class="contenedor-dash">
-  <div class="header">
-    <h2>Bienvenido al dashboard {{ request.user.username }}</h2>
-  </div>
-  <div class="cuerpo">
-    <aside>
-      <div class="titulo"><h3>este es el aside del dashboard</h3></div>
-      <div class="listas">
-        <button class="boton cinco toggle-button">
-          <div class="icono">
-            {% include 'usuarios\flechas.html' %}
-          </div>
-          <span class="titulo-ul"><strong>Módulo Usuarios</strong></span>
-        </button>
-        <ul>
-          <li> <a href="{% url 'registro-usuario' %}" class="load-content">Cargar usuario</a> </li>
-          <li> <a href="{% url 'ultimo_usuario' %}" class="load-content">Último Usuario</a> </li>
-          <li><a href="#" class="load-content">Modificar usuario</a></li>
-          <li><a href="#" class="load-content">Eliminar usuario</a></li>
-          <li> <a href="#" class="load-content">Habilitar / Deshabilitar usuario</a> </li>
-        </ul>
-        <button class="boton cinco toggle-button">
-          <div class="icono">
-            {% include 'usuarios\flechas.html' %}
-          </div>
-          <span class="titulo-ul"><strong>Módulo Plantas</strong></span>
-        </button>
-        <ul class="toggle-content">
-          <li>Ver Planta</li>
-          <li>Agregar planta</li>
-          <li>Eliminar planta</li>
-        </ul>
-        <button class="boton cinco toggle-button">
-          <div class="icono">
-            {% include 'usuarios\flechas.html' %}
-          </div>
-          <span class="titulo-ul"><strong>Módulo Estaciones</strong></span>
-        </button>
-        <ul class="toggle-content">
-          <li>Ver estación</li>
-          <li>Agregar estación</li>
-          <li>Eliminar estación</li>
-          <li>Vincular estación a planta</li>
-          <li>Desvincular estación de planta</li>
-          <li>Remplazar estación</li>
-        </ul>
-        <button class="boton cinco toggle-button">
-          <div class="icono">
-            {% include 'usuarios\flechas.html' %}
-          </div>
-          <span class="titulo-ul"><strong>Módulo Sensores</strong></span>
-        </button>
-        <ul class="toggle-content">
-          <li>Agregar sensor</li>
-          <li>Eliminar sensor</li>
-          <li>Vincular sensor a planta</li>
-          <li>Desvincular sensor de planta</li>
-          <li>Remplazar sensor</li>
-          <li>Ver sensor</li>
-          <li>Descargar datos de sensor</li>
-          <li>Fijar parámetro máximo de sensor</li>
-          <li>Fijar parámetro mínimo de sensor</li>
-        </ul>
-        <button class="boton cinco toggle-button">
-          <div class="icono">
-            {% include 'usuarios\flechas.html' %}
-          </div>
-          <span class="titulo-ul"><strong>Módulo Actuadores</strong></span>
-        </button>
-        <ul class="toggle-content">
-          <li>Agregar actuador</li>
-          <li>Eliminar actuador</li>
-          <li>Vincular actuador a estación</li>
-          <li>Desvincular actuador de estación</li>
-          <li>Remplazar actuador</li>
-          <li>Ver actuador</li>
-          <li>Accionar actuador</li>
-        </ul>
+  <div class="contenedor-dash">
+    <div class="header">
+      <h2>
+          Bienvenido al dashboard  {{ request.user.username }}
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#cambiarContrasena">
+              <i class="fas fa-chevron-down"></i>
+          </button>
+      </h2>
+      <div id="cambiarContrasena" class="collapse">
+          <a href="{% url 'cambiar_contrasena' %}" class="btn btn-primary">Cambiar Contraseña</a>
       </div>
-    </aside>
+    </div>
 
-    <section class="principal">
-      <div id="main-content">
-        <!-- Aquí se cargará el contenido -->
+    <div class="cuerpo">
+      <aside>
+        <div class="titulo"><h3>este es el aside del dashboard</h3></div>
+        <div class="listas">
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Usuarios</strong></span>
+          </button>
+          <ul>
+            <li> <a href="{% url 'registro-usuario' %}" class="load-content">Cargar usuario</a> </li>
+            <li> <a href="{% url 'ultimo_usuario' %}" class="load-content">Último Usuario</a> </li>
+            <li><a href="{% url 'modificar_usuario' %}" class="load-content">Modificar usuario</a></li>
+            <li><a href="{% url 'buscar_usuario' %}" class="load-content">Buscar usuarios</a></li>
+            <li> <a href="{% url 'modificar_habilitacion' %}" class="load-content">Habilitar / Deshabilitar usuario</a> </li>
+          </ul>
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Plantas</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li>Ver Planta</li>
+            <li>Agregar planta</li>
+            <li>Eliminar planta</li>
+          </ul>
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Estaciones</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li>Ver estación</li>
+            <li>Agregar estación</li>
+            <li>Eliminar estación</li>
+            <li>Vincular estación a planta</li>
+            <li>Desvincular estación de planta</li>
+            <li>Remplazar estación</li>
+          </ul>
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Sensores</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li>Agregar sensor</li>
+            <li>Eliminar sensor</li>
+            <li>Vincular sensor a planta</li>
+            <li>Desvincular sensor de planta</li>
+            <li>Remplazar sensor</li>
+            <li>Ver sensor</li>
+            <li>Descargar datos de sensor</li>
+            <li>Fijar parámetro máximo de sensor</li>
+            <li>Fijar parámetro mínimo de sensor</li>
+          </ul>
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Actuadores</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li>Agregar actuador</li>
+            <li>Eliminar actuador</li>
+            <li>Vincular actuador a estación</li>
+            <li>Desvincular actuador de estación</li>
+            <li>Remplazar actuador</li>
+            <li>Ver actuador</li>
+            <li>Accionar actuador</li>
+          </ul>
+        </div>
+      </aside>
 
-      </div>
-    </section>
+      <section class="principal">
+        <div id="main-content">
+          <!-- Aquí se cargará el contenido -->
+
+        </div>
+      </section>
+    </div>
   </div>
-</div>
 
 {% endblock %}
 
@@ -125,4 +132,7 @@ VaiProcess {% endblock %} {% block extra_styles %}
 {% block footer_izquierda %} {% endblock %} {% block extra_scripts %}
 <script src="{% static 'js/dashboard/aside-dashboard.js' %}"></script>
 <script src="{% static 'js/dashboard/principal-dashboard.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 {% endblock %}

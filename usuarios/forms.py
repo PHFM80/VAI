@@ -18,7 +18,8 @@ class RegistroUsuarioForm(forms.ModelForm):
         model = UsuarioVai
         fields = ['first_name', 'last_name', 'email', 'telefono', 'rol', 'cargo']
 
-
+class BuscarUsuarioForm(forms.Form):
+    username = forms.CharField(label='Nombre de Usuario', max_length=150)
 
 
 

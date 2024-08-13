@@ -1,0 +1,95 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Modificar Habilitar Usuario - VaiP {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/usuarios/modificar-habilitacion.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+<div class="container">
+    <!-- Formulario para ingresar el username -->
+    <div class="ingreso text-center mb-4">
+        <h2>Buscar Usuario</h2>
+        <form method="post" action="" class="mx-auto" style="max-width: 500px;">
+            {% csrf_token %}
+            {{ form_buscar.as_p }}
+            <button type="submit" name="buscar_usuario" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+
+    {% if usuario %}
+    <div class="row">
+        <!-- Datos del Usuario -->
+        <div class="col-md-6">
+            <div class="originales">
+                <h2>Datos Actuales del Usuario</h2>
+                <p><strong>Nombre:</strong> {{ usuario.first_name }}</p>
+                <p><strong>Apellido:</strong> {{ usuario.last_name }}</p>
+                <p><strong>Email:</strong> {{ usuario.email }}</p>
+                <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+                <p><strong>Cargo:</strong> {{ usuario.cargo }}</p>
+                <p><strong>Nombre de Usuario:</strong> {{ usuario.username }}</p>
+                <p><strong>Estado:</strong> 
+                    {% if usuario.is_active %}
+                        <span class="badge bg-success">Habilitado</span>
+                    {% else %}
+                        <span class="badge bg-danger">Deshabilitado</span>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Formulario para modificar la habilitación -->
+        <div class="col-md-6">
+            <div class="habilitado">
+                <h2>Modificar Habilitación</h2>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="username" value="{{ usuario.username }}">
+            
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="is_active" value="1" {% if usuario.is_active %}checked{% endif %}>
+                        <label class="form-check-label">
+                            Usuario habilitado
+                        </label>
+                    </div>
+                    
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="is_active" value="0" {% if not usuario.is_active %}checked{% endif %}>
+                        <label class="form-check-label">
+                            Usuario deshabilitado
+                        </label>
+                    </div>
+            
+                    <button type="submit" name="guardar_cambio" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
+  
+
