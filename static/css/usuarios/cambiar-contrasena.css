@@ -1,0 +1,80 @@
+/* Centrar todo el contenido en la página */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Centrar el encabezado h2 */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los labels e inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px; /* Separación entre los elementos */
+}
+
+/* Alinear labels y inputs */
+.form-group label {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Estilo para el contenedor del input y el ojo */
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Hacer que los inputs tengan el mismo tamaño */
+.input-group input {
+    flex-grow: 1;
+}
+
+/* Estilo para el botón */
+button[type="submit"] {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+/* Estilo para el ícono del ojo */
+.toggle-password {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.size-6 {
+    width: 24px;
+    height: 24px;
+}
+
+.hidden {
+    display: none;
+}

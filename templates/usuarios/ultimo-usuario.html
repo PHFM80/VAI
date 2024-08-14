@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Ultimo Usuario Registrado {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/usuarios/ultimo-usuario.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container centrado">
+        <h2>Último Usuario Registrado</h2>
+        {% if mensaje %}
+            <p>{{ mensaje }}</p>
+        {% else %}
+            <div class="usuario-info">
+                <div class="info-item"><strong>Nombre:</strong></div>
+                <div class="info-value"><span>{{ usuario.first_name }}</span></div>
+                
+                <div class="info-item"><strong>Apellido:</strong></div>
+                <div class="info-value"><span>{{ usuario.last_name }}</span></div>
+                
+                <div class="info-item"><strong>Email:</strong></div>
+                <div class="info-value"><span>{{ usuario.email }}</span></div>
+                
+                <div class="info-item"><strong>Teléfono:</strong></div>
+                <div class="info-value"><span>{{ usuario.telefono }}</span></div>
+                
+                <div class="info-item"><strong>Cargo:</strong></div>
+                <div class="info-value"><span>{{ usuario.cargo }}</span></div>
+                
+                <div class="info-item"><strong>Nombre de Usuario:</strong></div>
+                <div class="info-value"><span>{{ usuario.username }}</span></div>
+                
+                <div class="info-item"><strong>Contraseña:</strong></div>
+                <div class="info-value"><span>vaiprocess2024</span></div>
+            </div>
+        {% endif %}
+        <!-- Botón para regresar al dashboard y generar el PDF -->
+        <a onclick="generatePDF()" href="{% url 'dashboard' %}" class="btn btn-primary">Generar PDF</a>
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="{% static 'js/usuarios/ultimo-usuario.js' %}"></script>
+{% endblock %}
+  

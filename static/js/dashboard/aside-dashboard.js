@@ -1,3 +1,6 @@
+
+
+// funcion para manejar los botones
 document.addEventListener('DOMContentLoaded', function() {
     var buttons = document.querySelectorAll('.toggle-button');
     
@@ -18,3 +21,4 @@ document.querySelectorAll('.toggle-button').forEach(button => {
         this.classList.toggle('open');
     });
 });
+

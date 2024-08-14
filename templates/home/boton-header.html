@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'css/home/boton-header.css' %}">
 
 <div class="contenedor">
-    {% if not is_dashboard %}
+    {% if not is_dashboard and not isin_dashboard %}
     <div class="titulo">
         <p>Acceso clientes</p>
     </div>
@@ -29,3 +29,6 @@
         {% endif %}
     </div>
 </div>
+
+
+

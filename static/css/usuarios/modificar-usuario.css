@@ -1,0 +1,40 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.datos {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.originales, .modificados {
+    width: 45%;
+}
+
+.modificados form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn.btn-primary {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn.btn-primary:hover {
+    background-color: #0056b3;
+}

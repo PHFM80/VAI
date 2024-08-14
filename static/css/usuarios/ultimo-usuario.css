@@ -1,0 +1,29 @@
+.centrado {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.usuario-info {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Primer columna más pequeña y la segunda ocupa el resto del espacio */
+    gap: 10px 20px; /* Espacio entre filas y columnas */
+    margin-bottom: 20px; /* Espacio entre el contenido y el botón */
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-item strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.info-item span {
+    color: #555;
+}
+
