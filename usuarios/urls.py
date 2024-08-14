@@ -13,5 +13,6 @@ urlpatterns = [
     path('modificar-habilitacion/', views.modificar_habilitacion_view, name='modificar_habilitacion'),
     path('cambiar-contrasena/', views.cambiar_contrasena_view, name='cambiar_contrasena'),
     path('buscar-usuario/', views.buscar_usuario_view, name='buscar_usuario'),
+    path('exportar-usuarios-excel/', views.exportar_usuarios_excel_view, name='exportar_usuarios_excel'),
 
 ]

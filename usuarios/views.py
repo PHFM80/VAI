@@ -6,6 +6,9 @@ from django.contrib import messages
 from .forms import RegistroUsuarioForm, BuscarUsuarioForm
 from .models import UsuarioVai
 from django.urls import reverse
+from .models import UsuarioVai, Cargo
+import openpyxl
+from django.http import HttpResponse
 
 
 
@@ -195,9 +198,106 @@ def cambiar_contrasena_view(request):
 
 @login_required
 def buscar_usuario_view(request):
+    # Inicializamos una lista vacía para los resultados
+    resultados = []
+    cargos = Cargo.objects.all()  # Cargar los cargos
+    #plantas = Planta.objects.all()  # Cargar las plantas
+    #empresas = Empresa.objects.all()  # Cargar las empresas
+    plantas = ["Gersa"]
+    empresas = ["Gersa"]
 
-    return render(request, 'usuarios/buscar-usuarios.html', {'isin_dashboard': True})
+    # Verificamos si se ha enviado el formulario de búsqueda
+    if request.method == 'GET':
+        criterio = request.GET.get('criterio')
+        print(f'Criterio recibido: {criterio}')  # Verifica el criterio recibido
 
+        if criterio == 'activos':
+            resultados = UsuarioVai.objects.filter(is_active=True)
+        elif criterio == 'inactivos':
+            resultados = UsuarioVai.objects.filter(is_active=False)
+        elif criterio == 'cargo':
+            cargo = request.GET.get('cargo')
+            if cargo:
+                resultados = UsuarioVai.objects.filter(cargo_id=cargo)
+        elif criterio == 'planta':
+            planta = request.GET.get('planta')
+            if planta:
+                resultados = UsuarioVai.objects.filter(planta_id=planta)
+        elif criterio == 'empresa':
+            empresa = request.GET.get('empresa')
+            if empresa:
+                resultados = UsuarioVai.objects.filter(empresa_id=empresa)
+
+    # Pasamos los resultados y los datos de los selects a la plantilla
+    return render(request, 'usuarios/buscar-usuarios.html', {
+        'isin_dashboard': True,
+        'resultados': resultados,
+        'cargos': cargos,
+        'plantas': plantas,
+        'empresas': empresas,
+    })
+
+@login_required
+def exportar_usuarios_excel_view(request):
+    criterio = request.GET.get('criterio')
+    usuarios = []
+
+    print(f'Criterio recibido: {criterio}')  # Depuración
+
+    # Lógica de búsqueda de usuarios según el criterio
+    if criterio == 'activos':
+        usuarios = UsuarioVai.objects.filter(is_active=True)
+    elif criterio == 'inactivos':
+        usuarios = UsuarioVai.objects.filter(is_active=False)
+    elif criterio == 'cargo':
+        cargo = request.GET.get('cargo')
+        print(f'Filtrando por cargo: {cargo}')  # Depuración
+        if cargo:
+            usuarios = UsuarioVai.objects.filter(cargo_id=cargo)
+    # elif criterio == 'planta':
+    #     planta = request.GET.get('planta')
+    #     print(f'Filtrando por planta: {planta}')  # Depuración
+    #     if planta:
+    #         usuarios = UsuarioVai.objects.filter(planta_id=planta)
+    # elif criterio == 'empresa':
+    #     empresa = request.GET.get('empresa')
+    #     print(f'Filtrando por empresa: {empresa}')  # Depuración
+    #     if empresa:
+    #         usuarios = UsuarioVai.objects.filter(empresa_id=empresa)
+
+    print(f'Usuarios encontrados: {len(usuarios)}')  # Depuración
+
+    # Crear un libro de Excel y una hoja
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = 'Usuarios'
+
+    # Agregar encabezados
+    headers = ['Username', 'Nombres', 'Apellidos', 'Email', 'Teléfono', 'Cargo', 'Habilitado', 'Planta', 'Fecha Registro', 'Último Ingreso']
+    sheet.append(headers)
+
+    # Agregar datos de usuarios
+    for usuario in usuarios:
+        sheet.append([
+            usuario.username,
+            usuario.first_name,
+            usuario.last_name,
+            usuario.email,
+            usuario.telefono,
+            usuario.cargo.nombre if usuario.cargo else 'Sin cargo',
+            'Sí' if usuario.is_active else 'No',
+            #usuario.planta.nombre if usuario.planta else 'Sin planta',
+            usuario.date_joined.strftime('%Y-%m-%d %H:%M:%S'),
+            usuario.last_login.strftime('%Y-%m-%d %H:%M:%S') if usuario.last_login else 'Nunca'
+        ])
+
+    # Preparar la respuesta HTTP con el archivo Excel
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+    response['Content-Disposition'] = 'attachment; filename=usuarios.xlsx'
+    workbook.save(response)
+    return response
 
 
 

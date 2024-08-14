@@ -25,67 +25,74 @@
 
 <!-- Main Content -->
 {% block content %}
-    <div class="container">
-        <h2>Búsqueda de usuarios</h2>
-        
-        <div class="ingreso">
-            <div class="row">
-                <h3>Seleccione tipo de búsqueda</h3>
-            </div>
+    <form method="GET" action="{% url 'buscar_usuario' %}">
+        <div class="container">
+            <h2>Búsqueda de usuarios</h2>
             
-            <div class="row">
-                <!-- Criterio 1: Usuarios activos -->
-                <div class="columna">
-                    <label>
-                        <input type="radio" name="criterio" value="activos"> Activos
-                    </label>
+            <div class="ingreso">
+                <div class="row">
+                    <h3>Seleccione tipo de búsqueda</h3>
                 </div>
-                <!-- Criterio 2: Usuarios inactivos -->
-                <div class="columna">
-                    <label>
-                        <input type="radio" name="criterio" value="inactivos"> Inactivos
-                    </label>
+                
+                <div class="row">
+                    <!-- Criterio 1: Usuarios activos -->
+                    <div class="columna">
+                        <label>
+                            <input type="radio" name="criterio" value="activos"> Activos
+                        </label>
+                    </div>
+                    <!-- Criterio 2: Usuarios inactivos -->
+                    <div class="columna">
+                        <label>
+                            <input type="radio" name="criterio" value="inactivos"> Inactivos
+                        </label>
+                    </div>
+                    <!-- Criterio 3: Usuarios por cargo -->
+                    <div class="columna">
+                        <label>
+                            <input type="radio" name="criterio" value="cargo"> Por cargo:
+                        </label>
+                        <select id="cargo-select" name="cargo">
+                            <option value="" selected disabled>Seleccione un cargo</option>
+                            {% for cargo in cargos %}
+                                <option value="{{ cargo.id }}">{{ cargo.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!-- Criterio 4: Usuarios por plantas -->
+                    <div class="columna">
+                        <label>
+                            <input type="radio" name="criterio" value="planta"> Por planta:
+                        </label>
+                        <select id="planta-select" name="planta">
+                            <option value="" selected disabled>Seleccione una planta</option>
+                            {% for planta in plantas %}
+                                <option value="{{ planta.id }}">{{ planta.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!-- Criterio 5: Usuarios por empresa -->
+                    <div class="columna">
+                        <label>
+                            <input type="radio" name="criterio" value="empresa"> Por empresa:
+                        </label>
+                        <select id="empresa-select" name="empresa">
+                            <option value="" selected disabled>Seleccione una empresa</option>
+                            {% for empresa in empresas %}
+                                <option value="{{ empresa.id }}">{{ empresa.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-                <!-- Criterio 3: Usuarios por cargo -->
-                <div class="columna">
-                    <label>
-                        <input type="radio" name="criterio" value="cargo"> Por cargo:
-                    </label>
-                    <select id="cargo-select" name="cargo">
-                        <option value="" selected disabled>Seleccione un cargo</option>
-                        <!-- Los cargos de la base de datos se cargarán aquí -->
-                    </select>
-                </div>
-                <!-- Criterio 4: Usuarios por plantas -->
-                <div class="columna">
-                    <label>
-                        <input type="radio" name="criterio" value="planta"> Por planta:
-                    </label>
-                    <select id="planta-select" name="planta">
-                        <option value="" selected disabled>Seleccione una planta</option>
-                        <!-- Las plantas de la base de datos se cargarán aquí en el futuro -->
-                    </select>
-                </div>
-                <!-- Criterio 5: Usuarios por empresa -->
-                <div class="columna">
-                    <label>
-                        <input type="radio" name="criterio" value="empresa"> Por empresa:
-                    </label>
-                    <select id="empresa-select" name="empresa">
-                        <option value="" selected disabled>Seleccione una empresa</option>
-                        <!-- Las plantas de la base de datos se cargarán aquí en el futuro -->
-                    </select>
-                </div>
-            </div>
 
-            <div class="row">
-                <!-- Botón de buscar -->
-                <div class="columna btn-container">
-                    <button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
+                <div class="row">
+                    <!-- Botón de buscar -->
+                    <div class="columna btn-container">
+                        <button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
+    </form>       
         <div class="datos">
             <!-- Fila de la tabla de usuarios -->
             <div class="row usuarios-row">
@@ -105,17 +112,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Aquí se llenarán las filas de datos dinámicamente -->
+                        {% for usuario in resultados %}
+                            <tr>
+                                <td>{{ usuario.username }}</td>
+                                <td>{{ usuario.first_name }}</td>
+                                <td>{{ usuario.last_name }}</td>
+                                <td>{{ usuario.email }}</td>
+                                <td>{{ usuario.telefono }}</td>
+                                <td>{{ usuario.cargo.nombre|default:"Sin cargo" }}</td>
+
+                                <td>{{ usuario.is_active|yesno:"Sí,No" }}</td>
+                                <td>{{ usuario.planta_id }}</td>
+                                <td>{{ usuario.date_joined }}</td>
+                                <td>{{ usuario.last_login }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="10">No se encontraron resultados.</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
     
             <!-- Fila con el botón de imprimir/descargar -->
-            <div class="row">
-                <div class="columna btn-container">
-                    <button type="button" class="btn btn-download">Imprimir/Descargar</button>
-                </div>
-            </div>
+            <form method="get" action="{% url 'exportar_usuarios_excel' %}">
+                <input type="hidden" name="criterio" value="{{ request.GET.criterio }}">
+                <input type="hidden" name="cargo" value="{{ request.GET.cargo }}">
+                <input type="hidden" name="planta" value="{{ request.GET.planta }}">
+                <input type="hidden" name="empresa" value="{{ request.GET.empresa }}">
+                <button type="submit" class="btn btn-success">Descargar Excel</button>
+            </form>
         </div>
     </div>
 
