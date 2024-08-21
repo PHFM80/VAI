@@ -1,0 +1,81 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Agregar Estacion {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/plantas/crud-estaciones/agregar-estacion.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container centrado">
+        <h2>Agregar Estacion</h2>
+        
+        <!-- Seleccionar Planta -->
+        <div class="form-group">
+            <label for="planta">Seleccionar Planta</label>
+            <div class="input-group">
+                <select id="planta" name="planta" class="form-control">
+                    <option value="">Selecciona una planta...</option>
+                    <!-- Opciones dinámicas aquí -->
+                </select>
+                <a href="{% url 'agregar_planta' %}" class="btn btn-link">Cargar Planta</a>
+            </div>
+        </div>
+
+        <!-- Seleccionar Modelo -->
+        <div class="form-group">
+            <label for="modelo">Seleccionar Modelo</label>
+            <div class="input-group">
+                <select id="modelo" name="modelo" class="form-control">
+                    <option value="">Selecciona un modelo...</option>
+                    <!-- Opciones dinámicas aquí -->
+                </select>
+                <a href="{% url 'agregar_modelo_estacion' %}" class="btn btn-link">Cargar Modelo</a>
+            </div>
+        </div>
+
+
+        <!-- Código QR con Generar QR -->
+        <div class="form-group">
+            <label for="codigo_barras">Código QR</label>
+            <div class="input-group">
+                <input type="text" id="codigo_barras" name="codigo_qr" class="form-control" placeholder="Ingresa el código QR...">
+                <button type="button" class="btn btn-primary">Generar QR</button>
+            </div>
+        </div>
+
+        <!-- Botón de Guardar -->
+        <div class="form-group form-group-btn">
+            <button type="submit" class="btn btn-success">Guardar Estación</button>
+        </div>
+
+        <!-- Botón de Cancelar -->
+        <div class="form-group form-group-btn">
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
+  

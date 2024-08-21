@@ -1,0 +1,107 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %} Agregar Sensor {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/plantas/crud-sensores/agregar-sensor.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container mt-5">
+        <h2>Agregar Sensor</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Campo para la estación -->
+            <div class="form-group">
+                <label for="{{ form.estacion.id_for_label }}">Estación:</label>
+                {{ form.estacion }}
+            </div>
+
+            <!-- Campo para el tipo -->
+            <div class="form-group">
+                <label for="{{ form.tipo.id_for_label }}">Tipo:</label>
+                {{ form.tipo }}
+                <a href="{% url 'agregar_tipo_sensor' %}?next={{ next_url }}">Agregar nuevo tipo de sensor</a>
+            </div>
+                        
+            <!-- Campo para en_uso -->
+            <div class="form-group form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="{{ form.en_uso.id_for_label }}" name="{{ form.en_uso.name }}" {% if form.en_uso.value %}checked{% endif %} onchange="toggleLabel()">
+                <label class="form-check-label" for="{{ form.en_uso.id_for_label }}" id="enUsoLabel">
+                    {% if form.en_uso.value %}
+                        En uso
+                    {% else %}
+                        Sin usar
+                    {% endif %}
+                </label>
+            </div>
+
+            <!-- Campo para la fecha de instalación -->
+            <div class="form-group">
+                <label for="{{ form.fecha_instalacion.id_for_label }}">Fecha de Instalación:</label>
+                {{ form.fecha_instalacion }}
+            </div>
+
+            <!-- Campo para descripción -->
+            <div class="form-group">
+                <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+                {{ form.descripcion }}
+            </div>
+
+            <!-- Campo para código QR -->
+            <div class="form-group">
+                <label for="codigo_qr">Código QR:</label>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <button type="button" class="btn btn-primary" onclick="generarQRCode()">Generar Código QR</button>
+                    </div>
+                    <div id="qr_image_container" style="flex: 1; text-align: center;">
+                        <img id="qr_image" src="" alt="Código QR" style="max-width: 150px; display: none;">
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                        <button type="button" class="btn btn-secondary" onclick="guardarQRCode()">Guardar Imagen QR</button>
+                    </div>
+                </div>
+                {{ form.codigo_qr }}
+            </div>
+
+
+
+            <!-- Botón de guardar -->
+            <button type="submit" class="btn btn-primary">Guardar</button>
+
+            <!-- Botón de cancelar -->
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+        
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static 'js/plantas/crud-sensores/agregar-sensor.js' %}"></script>
+
+{% endblock %}
+  
+
+
+

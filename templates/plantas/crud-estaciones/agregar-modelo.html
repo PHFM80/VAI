@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Agregar modelo de estación {% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/plantas/crud-estaciones/agregar-modelo.css' %}">
+{% endblock %}
+
+<!-- Header -->
+<!-- Sección 2: Bloque Central -->
+{% block header_central %}
+
+{% endblock %}
+
+
+<!-- Sección 3: Botón de Inicio de Sesión -->
+{% block header_derecha %}
+    {% with button_text="Volver al Dashboard" button_url="dashboard" %}
+        {% include 'home/boton-header.html' %}
+    {% endwith %}
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container centrado">
+        <h2>Agregar Modelo Estación</h2>
+        
+        <!-- Nombre del Modelo -->
+        <div class="form-group">
+            <label for="nombre_modelo">Nombre del Modelo</label>
+            <input type="text" id="nombre_modelo" name="nombre_modelo" class="form-control" placeholder="Ingresa el nombre del modelo...">
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" class="form-control" rows="3" placeholder="Ingresa una descripción del modelo..."></textarea>
+        </div>
+
+        <!-- Botón de Guardar -->
+        <div class="form-group botones-centrados">
+            <button type="submit" class="btn btn-success">Guardar Modelo</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
+  

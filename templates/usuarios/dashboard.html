@@ -44,19 +44,7 @@
       <aside>
         <div class="titulo"><h3>este es el aside del dashboard</h3></div>
         <div class="listas">
-          <button class="boton cinco toggle-button">
-            <div class="icono">
-              {% include 'usuarios\flechas.html' %}
-            </div>
-            <span class="titulo-ul"><strong>Módulo Usuarios</strong></span>
-          </button>
-          <ul>
-            <li> <a href="{% url 'registro-usuario' %}" class="load-content">Cargar usuario</a> </li>
-            <li> <a href="{% url 'ultimo_usuario' %}" class="load-content">Último Usuario</a> </li>
-            <li><a href="{% url 'modificar_usuario' %}" class="load-content">Modificar usuario</a></li>
-            <li><a href="{% url 'buscar_usuario' %}" class="load-content">Buscar usuarios</a></li>
-            <li> <a href="{% url 'modificar_habilitacion' %}" class="load-content">Habilitar / Deshabilitar usuario</a> </li>
-          </ul>
+          
           <button class="boton cinco toggle-button">
             <div class="icono">
               {% include 'usuarios\flechas.html' %}
@@ -65,23 +53,11 @@
           </button>
           <ul class="toggle-content">
             <li>Ver Planta</li>
-            <li>Agregar planta</li>
-            <li>Eliminar planta</li>
+            <li> <a href="{% url 'agregar_empresa' %}?next={{ request.path }}">Agregar Empresa</a> </li>
+            <li> <a href="{% url 'agregar_planta' %}?next={{ request.path }}">Agregar Planta</a> </li>
+            <li> <a href="{% url 'eliminar_planta' %}?next={{ request.path }}">Eliminar Planta</a> </li>
           </ul>
-          <button class="boton cinco toggle-button">
-            <div class="icono">
-              {% include 'usuarios\flechas.html' %}
-            </div>
-            <span class="titulo-ul"><strong>Módulo Estaciones</strong></span>
-          </button>
-          <ul class="toggle-content">
-            <li>Ver estación</li>
-            <li>Agregar estación</li>
-            <li>Eliminar estación</li>
-            <li>Vincular estación a planta</li>
-            <li>Desvincular estación de planta</li>
-            <li>Remplazar estación</li>
-          </ul>
+
           <button class="boton cinco toggle-button">
             <div class="icono">
               {% include 'usuarios\flechas.html' %}
@@ -89,16 +65,13 @@
             <span class="titulo-ul"><strong>Módulo Sensores</strong></span>
           </button>
           <ul class="toggle-content">
-            <li>Agregar sensor</li>
+            <li> <a href="{% url 'agregar_sensor' %}?next={{ request.path }}">Agregar Sensor</a> </li>
             <li>Eliminar sensor</li>
-            <li>Vincular sensor a planta</li>
-            <li>Desvincular sensor de planta</li>
-            <li>Remplazar sensor</li>
-            <li>Ver sensor</li>
-            <li>Descargar datos de sensor</li>
-            <li>Fijar parámetro máximo de sensor</li>
-            <li>Fijar parámetro mínimo de sensor</li>
+            <li>Fijar parámetros del sensor</li>
+            <li>Seleccionar sensor</li>
+            <li>Descargar datos del sensor</li>
           </ul>
+
           <button class="boton cinco toggle-button">
             <div class="icono">
               {% include 'usuarios\flechas.html' %}
@@ -108,22 +81,53 @@
           <ul class="toggle-content">
             <li>Agregar actuador</li>
             <li>Eliminar actuador</li>
+            <li>Seleccionar actuador</li>
+            <li>Accionar actuador</li>
+            <li>Descargar datos del sensor</li>
+          </ul>
+   
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Estaciones</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li>Ver estación</li>
+            <li> <a href="{% url 'agregar_estacion' %}?next={{ request.path }}">Agregar Estacion</a> </li>
+            <li>Remplazar estación</li>
+            <li>Eliminar estación</li>
+            <li>Vincular estación a planta</li>
+            <li>Desvincular estación de planta</li>
+            <li>Remplazar estación</li>
+            <li>Vincular sensor a estación</li>
+            <li>Desvincular sensor de estación</li>
             <li>Vincular actuador a estación</li>
             <li>Desvincular actuador de estación</li>
-            <li>Remplazar actuador</li>
-            <li>Ver actuador</li>
-            <li>Accionar actuador</li>
+          </ul>
+
+          <button class="boton cinco toggle-button">
+            <div class="icono">
+              {% include 'usuarios\flechas.html' %}
+            </div>
+            <span class="titulo-ul"><strong>Módulo Usuarios</strong></span>
+          </button>
+          <ul class="toggle-content">
+            <li> <a href="{% url 'registro-usuario' %}" class="load-content">Cargar usuario</a> </li>
+            <li> <a href="{% url 'ultimo_usuario' %}" class="load-content">Último Usuario</a> </li>
+            <li><a href="{% url 'modificar_usuario' %}" class="load-content">Modificar usuario</a></li>
+            <li><a href="{% url 'buscar_usuario' %}" class="load-content">Buscar usuarios</a></li>
+            <li> <a href="{% url 'modificar_habilitacion' %}" class="load-content">Habilitar / Deshabilitar usuario</a> </li>
           </ul>
         </div>
       </aside>
-
+      
       <section class="principal">
         <div id="main-content">
           <!-- Aquí se cargará el contenido -->
 
         </div>
       </section>
-    </div>
   </div>
 
 {% endblock %}
